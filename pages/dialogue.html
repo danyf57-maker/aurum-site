@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aurum - Dialogue</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4d8bff",
+              "background-light": "#f5f6f8",
+              "background-dark": "#0f1623",
+              "snow-white": "#FFFAFA",
+              "creamy-white": "#FAF9F7",
+              "soft-gold": "#E0C56E",
+              "night-blue": "#0A2240",
+              "bluish-gray": "#5F6472"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "14px", "full": "9999px"},
+            boxShadow: {
+                'card': '0px 20px 40px rgba(0,0,0,0.07)',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-creamy-white dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-hidden">
+<div class="pointer-events-none absolute inset-0 z-0">
+<div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full" style="background: radial-gradient(circle, rgba(173, 216, 230, 0.2) 0%, rgba(173, 216, 230, 0) 70%);"></div>
+<div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full" style="background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(212, 175, 55, 0) 70%);"></div>
+</div>
+<header class="sticky top-0 z-10 bg-creamy-white/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="container mx-auto px-4">
+<div class="flex h-16 items-center justify-between">
+<h1 class="text-[#101318] dark:text-white text-xl font-bold font-playfair">Aurum</h1>
+<nav class="flex border-b border-transparent">
+<a class="flex flex-col items-center justify-center border-b-[2px] border-b-transparent px-4 py-2 text-[#5e6e8d] dark:text-gray-400" href="#">
+<p class="text-sm font-bold leading-normal">Accueil</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[2px] border-b-[#101318] dark:border-b-white px-4 py-2 text-[#101318] dark:text-white" href="#">
+<p class="text-sm font-bold leading-normal">Dialogue</p>
+</a>
+</nav>
+</div>
+</div>
+</header>
+<main class="flex flex-1 items-center justify-center p-4">
+<div class="relative w-full max-w-2xl">
+<div class="flex flex-col items-stretch justify-start rounded-xl bg-white/70 dark:bg-gray-900/50 backdrop-blur-md shadow-card p-6 sm:p-8 md:p-10">
+<div class="flex w-full grow flex-col items-stretch justify-center gap-2 text-center">
+<h2 class="text-[#101318] dark:text-white text-4xl md:text-5xl font-bold font-playfair">Commençons.</h2>
+<p class="text-[#5e6e8d] dark:text-gray-300 text-base font-normal leading-normal max-w-md mx-auto">Qu’est-ce qui vous habite, en ce moment ?...</p>
+</div>
+<div class="mt-8 mb-6">
+<label class="flex flex-col min-w-40 flex-1">
+<textarea class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-white/50 dark:bg-gray-800/50 text-bluish-gray dark:text-gray-300 shadow-sm focus:outline-0 focus:ring-2 focus:ring-night-blue/20 p-4 text-base font-normal leading-normal transition-all duration-300 placeholder:text-bluish-gray/70 dark:placeholder:text-gray-500 min-h-60"></textarea>
+</label>
+</div>
+<div class="flex px-4 py-3">
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-night-blue text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+<span class="truncate">Entrer dans le dialogue</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

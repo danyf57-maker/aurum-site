@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurum — Un espace pour entendre ce qui cherche à se dire.</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+  <!-- Tailwind CDN (+ forms & container-queries) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <!-- SEO / Open Graph -->
+  <meta name="description" content="Aurum ouvre un dialogue intérieur, non-directif, pour clarifier vos pensées et émotions. Une expérience profondément humaine, privée et confidentielle." />
+  <meta property="og:title" content="Aurum — Un espace pour entendre ce qui cherche à se dire." />
+  <meta property="og:description" content="Un dialogue intérieur guidé, sans jugement, pour faire émerger vos propres réponses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://danyf57-maker.github.io/aurum-site/" />
+  <meta property="og:image" content="assets/img/og-cover.png" />
+
+  <!-- Tailwind theme -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0A2240",               // Night Blue
+            "background-light": "#FAF9F7",    // Creamy White
+            "text-primary": "#0D0F14",        // Deep Night
+            "text-secondary": "#5F6472",      // Bluish-Gray
+            accent: "#E1C56A"                 // Soft Gold
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+            serif: ["Playfair Display", "serif"]
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "0.75rem",
+            xl: "14px",
+            full: "9999px"
+          },
+          boxShadow: {
+            soft: "0 20px 40px rgba(0,0,0,.07)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body{ min-height:max(884px,100dvh); }
+  </style>
+</head>
+<body class="bg-background-light font-display text-text-primary">
+  <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-10 bg-background-light/80 backdrop-blur-sm">
+      <div class="mx-auto flex max-w-6xl items-center justify-between p-4">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-3xl">psychology_alt</span>
+          <h2 class="text-text-primary text-xl font-bold leading-tight tracking-[-0.015em]">Aurum</h2>
+        </div>
+        <nav class="flex items-center gap-6 text-sm">
+          <a href="index.html" class="opacity-80 hover:opacity-100">Accueil</a>
+          <a href="pages/dialogue.html" class="opacity-80 hover:opacity-100">Dialogue</a>
+          <a href="pages/signup.html" class="opacity-80 hover:opacity-100">Entrer</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="relative overflow-hidden">
+        <div class="@container mx-auto max-w-6xl">
+          <!-- Radial glow (inline CSS pour compatibilité) -->
+          <div
+            class="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[200%] -translate-x-1/2 -translate-y-1/2"
+            style="background: radial-gradient(40% 40% at 50% 50%, rgba(234,179,8,.25) 0%, rgba(234,179,8,.05) 50%, transparent 100%); filter: blur(32px); opacity:.4;">
+          </div>
+
+          <div class="relative flex flex-col-reverse gap-10 px-4 py-24 @[864px]:flex-row @[864px]:items-center">
+            <!-- Texte -->
+            <div class="@[864px]:w-1/2 text-center @[864px]:text-left flex flex-col gap-10">
+              <div class="flex flex-col gap-4">
+                <h1 class="font-serif text-4xl font-semibold leading-tight tracking-tight text-text-primary @[480px]:text-5xl">
+                  Un espace pour entendre ce qui cherche à se dire.
+                </h1>
+                <h2 class="text-lg font-semibold leading-normal text-text-secondary">
+                  Aurum ouvre un dialogue intérieur pour te guider vers la clarté et l'introspection. Une expérience conçue pour être profondément humaine, à ton rythme.
+                </h2>
+              </div>
+
+              <div class="flex flex-col items-center gap-3 @[480px]:flex-row @[864px]:justify-start">
+                <a href="pages/dialogue.html" class="inline-block">
+                  <button
+                    class="flex h-12 min-w-[84px] items-center justify-center rounded-lg bg-primary px-5 text-base font-bold text-white tracking-[0.015em] hover:opacity-95 active:opacity-90">
+                    <span class="truncate">Commencer le dialogue</span>
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            <!-- Visuel -->
+            <div class="hidden @[864px]:block @[864px]:w-1/2 w-full">
+              <img
+                class="h-full w-full rounded-xl object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB691BYXmkSS2flLSRgAzHnJ1g7g9SMKzeI_TRRpZku7fTsxokyOQpU-olD_aEhyc0jF1pTo0GhwDNa4ikdJqR35s6qhWmjuQGFwTT_Aqk_G9O_Gi_jUBpTyEkf0pGsHHERydTL-zZbjxnOCxyeQCmnZzgsXHjK5iGdiKiMmyRZ8LEay4IMBqWi4ZcGMeT4dKCGCsulq6qZSf38nwEcZy6cgyfVHGdKO_GSUN3yDDG__leAkyLhGOXvBoc5K6taSiDQMnF1gL9AdsWD"
+                alt="Illustration abstraite blanche et or évoquant le calme" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bénéfices -->
+      <section class="bg-background-light py-24 sm:py-32">
+        <div class="mx-auto max-w-6xl px-4">
+          <div class="mb-16 text-center">
+            <h2 class="font-serif text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
+              Ce que tu vis avec Aurum
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div class="flex flex-col items-start gap-4 rounded-xl bg-white p-6 shadow-soft">
+              <span class="material-symbols-outlined text-accent text-4xl">lightbulb</span>
+              <div>
+                <p class="text-lg font-semibold text-text-primary">Clarté intérieure</p>
+                <p class="text-base text-text-secondary">Mets des mots sur tes pensées et sentiments pour y voir plus clair.</p>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-start gap-4 rounded-xl bg-white p-6 shadow-soft">
+              <span class="material-symbols-outlined text-accent text-4xl">person_search</span>
+              <div>
+                <p class="text-lg font-semibold text-text-primary">Compréhension de soi</p>
+                <p class="text-base text-text-secondary">Explore les racines de tes émotions et de tes comportements.</p>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-start gap-4 rounded-xl bg-white p-6 shadow-soft">
+              <span class="material-symbols-outlined text-accent text-4xl">sentiment_calm</span>
+              <div>
+                <p class="text-lg font-semibold text-text-primary">Présence émotionnelle</p>
+                <p class="text-base text-text-secondary">Accueille tes ressentis avec douceur pour mieux les naviguer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section class="bg-background-light py-24 sm:py-32">
+        <div class="mx-auto max-w-3xl px-4">
+          <div class="mb-16 text-center">
+            <h2 class="font-serif text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
+              Comment se déroule un dialogue ?
+            </h2>
+          </div>
+
+          <div class="flex flex-col gap-12">
+            <div class="flex flex-col items-center gap-4 text-center">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-lg font-bold text-accent">1</div>
+              <div>
+                <h3 class="text-lg font-semibold text-text-primary">L’intention</h3>
+                <p class="text-base text-text-secondary">Tout commence par une question, une émotion, une situation. Tu poses ton intention pour la session.</p>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-4 text-center">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-lg font-bold text-accent">2</div>
+              <div>
+                <h3 class="text-lg font-semibold text-text-primary">L’exploration</h3>
+                <p class="text-base text-text-secondary">Aurum te guide avec des questions ouvertes, sans jugement, à ton rythme.</p>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-4 text-center">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-lg font-bold text-accent">3</div>
+              <div>
+                <h3 class="text-lg font-semibold text-text-primary">L’émergence</h3>
+                <p class="text-base text-text-secondary">Au fil des mots, une perspective se dessine. Des liens et prises de conscience apparaissent.</p>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-4 text-center">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-accent/20 text-lg font-bold text-accent">4</div>
+              <div>
+                <h3 class="text-lg font-semibold text-text-primary">L’intégration</h3>
+                <p class="text-base text-text-secondary">La session se conclut sur une synthèse de ton cheminement, une pensée clé à emporter.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Positionnement -->
+      <section class="bg-background-light py-24 sm:py-32">
+        <div class="mx-auto max-w-3xl px-4 text-center">
+          <h2 class="font-serif text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
+            Une approche profondément humaine.
+          </h2>
+          <p class="mt-6 text-lg leading-relaxed text-text-secondary">
+            Aurum n’est pas un chatbot ni un outil de performance. C’est un miroir. Inspiré par une approche non-directive, il ne donne pas de conseils : il t’aide à faire émerger tes propres réponses. Chaque dialogue est privé et confidentiel.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-background-light">
+      <div class="mx-auto max-w-6xl px-4 py-8">
+        <div class="flex flex-col items-center justify-center gap-4">
+          <p class="text-sm text-text-secondary">Aurum © — Présence • Introspection • Clarté</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

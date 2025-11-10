@@ -12,12 +12,10 @@
   <!-- SEO minimal -->
   <meta name="description" content="Un espace calme pour formuler ce qui se présente. Dialogue non-directif et confidentiel.">
 
-  <!-- Fonts -->
+  <!-- Fonts & Tailwind -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet"/>
-
-  <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <script>
     tailwind.config = {
@@ -45,48 +43,24 @@
     html, body { height: 100%; }
     body { background: #FAF9F7; color:#101418; }
     .muted { color:#5E6673; }
+    .card { background:#ffffff; }
+    .bubble-user { background:#ffffff; }
+    .bubble-bot  { background:#ffffff; }
+    .bar { background: rgba(255,255,255,.82); }
     @media (prefers-color-scheme: dark) {
       body { background:#0e1114; color:#e9eef2; }
       .card { background:#12161a; }
+      .bubble-user { background:#1a222a; }
+      .bubble-bot  { background:#12161a; }
       .bar { background: rgba(18,22,26,.82); }
       .muted { color:#9aa3ad; }
-      .border-faint { border-color: rgba(255,255,255,.06); }
-      .bubble-user { background:#1a222a; }
-      .bubble-bot { background:#12161a; }
     }
   </style>
 </head>
-<script type="module">
-  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-  const supabase = createClient(
-    'https://jcxjojpwkjzawxcyppyf.supabase.co',
-    '<eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjeGpvanB3a2p6YXd4Y3lwcHlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3NjA3NjMsImV4cCI6MjA3NTMzNjc2M30.jmKkfQ9ARJzjKgUdHNZwvca3HldyUjYNaZoRWImY41Q>'
-  )
-
-  // Afficher l’état de connexion dans la barre d’état
-  const statusEl = document.getElementById('status')
-  ;(async () => {
-    const { data: { user } } = await supabase.auth.getUser()
-    if (user) statusEl.textContent = 'Statut : connecté'
-  })()
-
-  // Intercepter “Reprendre le dialogue” si non connecté → proposer signup
-  const resumeBtn = document.querySelector('.bar a')
-  resumeBtn?.addEventListener('click', async (e) => {
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) {
-      // redirige doucement vers la création d’espace
-      e.preventDefault()
-      window.location.href = './signup.html'
-    }
-  })
-</script>
-
 <body class="antialiased font-sans selection:bg-accent/25 selection:text-ink">
 
-  <!-- Contenu principal -->
   <main class="min-h-[100dvh] pb-28">
-    <!-- Lien retour discret -->
+    <!-- Retour discret -->
     <div class="max-w-3xl mx-auto px-5 pt-6">
       <a href="../index.html" class="inline-flex items-center gap-2 text-sm text-primary opacity-80 hover:opacity-100">
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z"/></svg>
@@ -94,7 +68,7 @@
       </a>
     </div>
 
-    <!-- Titre très discret -->
+    <!-- Titre discret -->
     <section class="max-w-3xl mx-auto px-5 mt-4 mb-2 text-center">
       <h1 class="font-serif text-2xl sm:text-3xl tracking-tight">Dialogue</h1>
       <p class="muted text-sm mt-2">Un espace calme pour formuler ce qui se présente.</p>
@@ -102,26 +76,25 @@
 
     <!-- Zone conversation -->
     <section class="max-w-3xl mx-auto px-5">
-      <div id="chat" class="rounded-xl bg-white shadow-soft p-4 sm:p-6 space-y-4 card border border-black/5 border-faint">
+      <div id="chat" class="rounded-xl card shadow-soft p-4 sm:p-6 space-y-4 border border-black/5">
         <!-- Message d’accueil -->
         <div class="flex gap-3">
           <div class="shrink-0 mt-1 h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs">A</div>
-          <div class="bubble-bot bg-white rounded-lg px-4 py-3 text-[15px] leading-relaxed">
+          <div class="bubble-bot rounded-lg px-4 py-3 text-[15px] leading-relaxed">
             Quand tu es prêt, écris simplement <em>ce qui se présente</em>.<br/>
             Tu peux commencer par une phrase ordinaire.
           </div>
         </div>
 
-        <!-- Quick intents (les 5 portes d’entrée) -->
+        <!-- Intents rapides -->
         <div id="intents" class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
           <button data-intent="Je ne comprends pas ce que je ressens." class="intent-btn text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">Je ne comprends pas ce que je ressens.</button>
           <button data-intent="J’ai trop de choses en tête." class="intent-btn text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">J’ai trop de choses en tête.</button>
           <button data-intent="J’hésite, je dois faire un choix." class="intent-btn text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">J’hésite, je dois faire un choix.</button>
-          <button data-intent="Je ne comprends pas ma réaction (ou celle de l’autre)." class="intent-btn text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">Je ne comprends pas une réaction.</button>
-          <button data-intent="J’ai besoin d’un endroit pour déposer ce que je porte." class="intent-btn sm:col-span-2 text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">J’ai besoin de déposer.</button>
+          <button data-intent="Je ne comprends pas une réaction." class="intent-btn text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">Je ne comprends pas une réaction.</button>
+          <button data-intent="J’ai besoin de déposer." class="intent-btn sm:col-span-2 text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">J’ai besoin de déposer.</button>
         </div>
-
-        <!-- Messages seront injectés ici -->
+        <!-- Messages injectés ici -->
       </div>
     </section>
 
@@ -141,7 +114,7 @@
 
     <!-- Intégration : Phrase repère -->
     <section class="max-w-3xl mx-auto px-5 mt-8 hidden" id="integration">
-      <div class="rounded-xl bg-white shadow-soft p-4 sm:p-5 border border-black/5 border-faint">
+      <div class="rounded-xl card shadow-soft p-4 sm:p-5 border border-black/5">
         <h2 class="font-semibold">Ce que tu veux garder avec toi</h2>
         <p class="muted text-sm mt-1">Écris une courte phrase qui éclaire la suite. Elle restera accessible ici.</p>
         <div class="mt-3 flex gap-2">
@@ -153,19 +126,33 @@
         <p id="savedMsg" class="text-xs mt-2 hidden">Phrase enregistrée. Tu pourras la retrouver en revenant ici.</p>
       </div>
     </section>
+
+    <!-- Bandeau d'invitation (apparait après 3 messages) -->
+    <section class="max-w-3xl mx-auto px-5 mt-4 hidden" id="signupBanner">
+      <div class="rounded-xl card shadow-soft p-4 border border-black/5">
+        <p class="text-sm">
+          <span class="font-semibold">Garder ton espace partout.</span>
+          Crée un espace privé pour retrouver ce dialogue et ta phrase repère sur tous tes appareils.
+        </p>
+        <div class="mt-3 flex gap-2">
+          <a href="./signup.html" class="rounded-lg bg-primary text-white px-4 h-10 inline-flex items-center">Créer mon espace</a>
+          <button id="dismissSignup" class="rounded-lg border px-4 h-10">Plus tard</button>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Barre d’état -->
   <div class="fixed bottom-3 inset-x-0">
     <div class="max-w-3xl mx-auto px-5">
-      <div class="bar rounded-xl border border-black/10 bg-white/80 backdrop-blur py-2.5 px-3.5 flex items-center justify-between text-sm shadow-soft">
+      <div class="bar rounded-xl border border-black/10 py-2.5 px-3.5 flex items-center justify-between text-sm shadow-soft">
         <span class="muted" id="status">Statut : prêt</span>
-        <a href="../index.html" class="px-3 py-1.5 rounded-md bg-primary text-white hover:bg-primary/90">Fermer l’espace</a>
+        <a href="../index.html" class="px-3 py-1.5 rounded-md bg-primary text-white hover:bg-primary/90">Revenir</a>
       </div>
     </div>
   </div>
 
-  <!-- Logique non-directive locale (aucun backend) -->
+  <!-- Logique non-directive locale -->
   <script>
     const chat = document.getElementById('chat');
     const form = document.getElementById('composer');
@@ -176,11 +163,12 @@
     const repereEl = document.getElementById('repere');
     const saveRepereBtn = document.getElementById('saveRepere');
     const savedMsg = document.getElementById('savedMsg');
+    const signupBanner = document.getElementById('signupBanner');
+    const dismissSignupBtn = document.getElementById('dismissSignup');
 
     const STORAGE_KEY = 'aurum_dialogue_v1';
     const REPERE_KEY  = 'aurum_repere_v1';
 
-    // Templates de questions non-directives (rotation)
     const prompts = [
       (t)=>`Je t’entends. Si tu devais mettre des mots très simples sur “${t}”, lesquels viendraient ?`,
       (t)=>`Dans ce que tu viens d’écrire, qu’est-ce qui te touche le plus maintenant ?`,
@@ -190,7 +178,6 @@
     ];
     let turn = 0;
 
-    // Restaure le fil et la phrase repère
     function restore() {
       try {
         const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
@@ -222,8 +209,8 @@
 
       const bubble = document.createElement('div');
       bubble.className = (role === 'user'
-        ? 'bubble-user bg-white rounded-lg px-4 py-3 text-[15px] leading-relaxed border border-black/5'
-        : 'bubble-bot bg-white rounded-lg px-4 py-3 text-[15px] leading-relaxed');
+        ? 'bubble-user rounded-lg px-4 py-3 text-[15px] leading-relaxed border border-black/5'
+        : 'bubble-bot  rounded-lg px-4 py-3 text-[15px] leading-relaxed');
 
       bubble.textContent = text;
 
@@ -246,7 +233,7 @@
       setTimeout(()=> render('bot', q), 350);
     }
 
-    // Intents rapides
+    // Intents
     if (intents) {
       intents.querySelectorAll('.intent-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -256,6 +243,12 @@
         });
       });
     }
+
+    // “Plus tard” sur le bandeau
+    dismissSignupBtn?.addEventListener('click', () => {
+      localStorage.setItem('dismiss_signup','1');
+      signupBanner?.classList.add('hidden');
+    });
 
     // Soumission
     form.addEventListener('submit', (e) => {
@@ -267,10 +260,11 @@
       statusEl.textContent = 'Statut : en cours';
       softQuestion(val);
 
-      // Proposer l’intégration (phrase repère) après quelques échanges
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
       if (saved.filter(m => m.role === 'user').length >= 3) {
         integration.classList.remove('hidden');
+        const dismissed = localStorage.getItem('dismiss_signup') === '1';
+        if (!dismissed) signupBanner?.classList.remove('hidden');
       }
       setTimeout(()=> statusEl.textContent = 'Statut : prêt', 600);
     });
@@ -284,8 +278,40 @@
       setTimeout(()=> savedMsg.classList.add('hidden'), 1400);
     });
 
-    // Première restauration
     restore();
+  </script>
+
+  <!-- Détection de connexion Supabase (Phase 2) -->
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+    // 1) Client Supabase (remplace la clé)
+    const supabase = createClient(
+      'https://jcxjojpwkjzawxcyppyf.supabase.co',
+      '<eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjeGpvanB3a2p6YXd4Y3lwcHlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3NjA3NjMsImV4cCI6MjA3NTMzNjc2M30.jmKkfQ9ARJzjKgUdHNZwvca3HldyUjYNaZoRWImY41Q>'
+    )
+
+    // 2) Afficher l’état de connexion dans la barre d’état
+    const statusEl = document.getElementById('status')
+    ;(async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (user) statusEl.textContent = 'Statut : connecté'
+    })()
+
+    // 3) (Option) Intercepter “Revenir” pour proposer signup si non connecté
+    //    -> ici on laisse "Revenir" simple (vers index). Si tu préfères
+    //       pousser vers signup quand non connecté, remplace le href au clic.
+    // Exemple (commenté) :
+    /*
+    const backBtn = document.querySelector('.bar a')
+    backBtn?.addEventListener('click', async (e) => {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (!user) {
+        e.preventDefault()
+        window.location.href = './signup.html'
+      }
+    })
+    */
   </script>
 </body>
 </html>

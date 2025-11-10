@@ -1,135 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aurum — Entrer</title>
-
-  <!-- Tailwind inline (comme Stitch) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#0A2240",      // Night Blue
-            "accent": "#E1C56A",       // Soft Gold
-            "background": "#FAF9F7",   // Cream background
-            "text-dark": "#1A1A1A",
-            "text-soft": "#6F7287",
-          },
-          fontFamily: {
-            serif: ["Playfair Display", "serif"],
-            sans: ["Inter", "sans-serif"]
-          },
-          borderRadius: {
-            lg: "0.75rem"
-          }
-        }
-      }
-    }
-  </script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Aurum — Créer mon espace</title>
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <style>body{background:#FAF9F7;color:#101418;font-family:Inter,system-ui,sans-serif}</style>
 </head>
-
-<body class="bg-background text-text-dark flex items-center justify-center min-h-screen p-6">
-
-  <div class="w-full max-w-md bg-white shadow-lg rounded-xl p-8 border border-gray-100">
-    
-    <!-- Logo -->
-    <div class="flex items-center justify-center mb-6">
-      <div class="w-8 h-8 rounded-full bg-accent/30 flex items-center justify-center">
-        <span class="text-accent text-xl">✦</span>
-      </div>
+<body class="antialiased">
+  <main class="min-h-[100dvh] flex items-center">
+    <div class="max-w-md mx-auto w-full px-6">
+      <h1 class="text-2xl font-semibold text-center">Créer mon espace</h1>
+      <p class="text-sm text-center text-[#5E6673] mt-2">Reçois un lien magique par e-mail pour retrouver ton dialogue.</p>
+      <form id="signupForm" class="mt-6 space-y-3">
+        <input id="email" type="email" required placeholder="ton@email.com"
+               class="w-full h-12 rounded-lg border border-black/10 bg-white px-4 focus:border-black/20 focus:ring-0"/>
+        <button type="submit"
+                class="w-full h-12 rounded-lg bg-[#0A2240] text-white font-semibold hover:bg-[#0A2240]/90">
+          Recevoir le lien magique
+        </button>
+      </form>
+      <p id="msg" class="text-sm text-center mt-3 hidden">Vérifie ta boîte mail. Tu peux fermer cette page.</p>
+      <p class="text-xs text-center mt-6"><a class="text-[#0A2240] underline" href="../index.html">Retour</a></p>
     </div>
+  </main>
 
-    <!-- Titre -->
-    <h1 class="text-3xl font-serif text-center mb-2">Bienvenue</h1>
-    <p class="text-center text-text-soft text-sm mb-8">
-      Un espace pour revenir à soi, à votre rythme.
-    </p>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+    const supabase = createClient(
+      'https://jcxjojpwkjzawxcyppyf.supabase.co',
+      '<eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjeGpvanB3a2p6YXd4Y3lwcHlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3NjA3NjMsImV4cCI6MjA3NTMzNjc2M30.jmKkfQ9ARJzjKgUdHNZwvca3HldyUjYNaZoRWImY41Q>'
+    )
 
-    <!-- Navigation Login / Sign up -->
-    <div class="flex mb-8 border-b border-gray-200">
-      <button id="tab-login" class="flex-1 pb-2 text-center font-medium text-primary border-b-2 border-primary">
-        Se connecter
-      </button>
+    const form = document.getElementById('signupForm')
+    const email = document.getElementById('email')
+    const msg = document.getElementById('msg')
 
-      <button id="tab-signup" class="flex-1 pb-2 text-center font-medium text-text-soft">
-        Créer un compte
-      </button>
-    </div>
-
-    <!-- Form Login -->
-    <form id="login-form" class="space-y-5">
-      <div>
-        <label class="block text-sm mb-1">Email</label>
-        <input type="email" class="w-full border border-gray-300 rounded-lg p-3" required>
-      </div>
-
-      <div>
-        <label class="block text-sm mb-1">Mot de passe</label>
-        <input type="password" class="w-full border border-gray-300 rounded-lg p-3" required>
-      </div>
-
-      <button class="w-full bg-primary text-white rounded-lg p-3 font-medium">
-        Entrer
-      </button>
-    </form>
-
-    <!-- Form Sign up -->
-    <form id="signup-form" class="space-y-5 hidden">
-      <div>
-        <label class="block text-sm mb-1">Votre prénom</label>
-        <input type="text" class="w-full border border-gray-300 rounded-lg p-3" required>
-      </div>
-
-      <div>
-        <label class="block text-sm mb-1">Email</label>
-        <input type="email" class="w-full border border-gray-300 rounded-lg p-3" required>
-      </div>
-
-      <div>
-        <label class="block text-sm mb-1">Mot de passe</label>
-        <input type="password" class="w-full border border-gray-300 rounded-lg p-3" required>
-      </div>
-
-      <button class="w-full bg-primary text-white rounded-lg p-3 font-medium">
-        Créer le compte
-      </button>
-    </form>
-
-  </div>
-
-  <script>
-    const tabLogin = document.getElementById("tab-login");
-    const tabSignup = document.getElementById("tab-signup");
-    const formLogin = document.getElementById("login-form");
-    const formSignup = document.getElementById("signup-form");
-
-    tabSignup.addEventListener("click", () => {
-      tabLogin.classList.remove("text-primary", "border-primary", "border-b-2");
-      tabLogin.classList.add("text-text-soft");
-
-      tabSignup.classList.add("text-primary", "border-primary", "border-b-2");
-      tabSignup.classList.remove("text-text-soft");
-
-      formLogin.classList.add("hidden");
-      formSignup.classList.remove("hidden");
-    });
-
-    tabLogin.addEventListener("click", () => {
-      tabSignup.classList.remove("text-primary", "border-primary", "border-b-2");
-      tabSignup.classList.add("text-text-soft");
-
-      tabLogin.classList.add("text-primary", "border-primary", "border-b-2");
-      tabLogin.classList.remove("text-text-soft");
-
-      formSignup.classList.add("hidden");
-      formLogin.classList.remove("hidden");
-    });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const { error } = await supabase.auth.signInWithOtp({
+        email: email.value,
+        options: { emailRedirectTo: location.origin + '/aurum-site/pages/dialogue.html' }
+      })
+      if (error) { alert(error.message); return }
+      msg.classList.remove('hidden')
+      form.classList.add('opacity-60','pointer-events-none')
+    })
   </script>
-
 </body>
 </html>

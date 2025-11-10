@@ -1,95 +1,291 @@
 <!DOCTYPE html>
-<html class="light" lang="fr"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Aurum - Dialogue</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<style>
-        .font-playfair {
-            font-family: 'Playfair Display', serif;
-        }
-    </style>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#4d8bff",
-              "background-light": "#f5f6f8",
-              "background-dark": "#0f1623",
-              "snow-white": "#FFFAFA",
-              "creamy-white": "#FAF9F7",
-              "soft-gold": "#E0C56E",
-              "night-blue": "#0A2240",
-              "bluish-gray": "#5F6472"
-            },
-            fontFamily: {
-              "display": ["Inter", "sans-serif"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "14px", "full": "9999px"},
-            boxShadow: {
-                'card': '0px 20px 40px rgba(0,0,0,0.07)',
-            }
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Aurum — Dialogue</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/favicon.png" />
+
+  <!-- SEO minimal -->
+  <meta name="description" content="Un espace calme pour formuler ce qui se présente. Dialogue non-directif et confidentiel.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: "#FAF9F7",
+            ink: "#101418",
+            mute: "#5E6673",
+            primary: "#0A2240",
+            accent: "#E1C56A"
           },
-        },
+          fontFamily: {
+            sans: ["Inter","system-ui","sans-serif"],
+            serif: ["Playfair Display","serif"]
+          },
+          boxShadow: { soft: "0 20px 40px rgba(0,0,0,.06)" },
+          borderRadius: { xl: "14px" }
+        }
       }
-    </script>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+    }
+  </script>
+
+  <style>
+    html, body { height: 100%; }
+    body { background: #FAF9F7; color:#101418; }
+    .muted { color:#5E6673; }
+    @media (prefers-color-scheme: dark) {
+      body { background:#0e1114; color:#e9eef2; }
+      .card { background:#12161a; }
+      .bar { background: rgba(18,22,26,.82); }
+      .muted { color:#9aa3ad; }
+      .border-faint { border-color: rgba(255,255,255,.06); }
+      .bubble-user { background:#1a222a; }
+      .bubble-bot { background:#12161a; }
     }
   </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
+</head>
+<script type="module">
+  import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+  const supabase = createClient(
+    'https://jcxjojpwkjzawxcyppyf.supabase.co',
+    '<eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjeGpvanB3a2p6YXd4Y3lwcHlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3NjA3NjMsImV4cCI6MjA3NTMzNjc2M30.jmKkfQ9ARJzjKgUdHNZwvca3HldyUjYNaZoRWImY41Q>'
+  )
+
+  // Afficher l’état de connexion dans la barre d’état
+  const statusEl = document.getElementById('status')
+  ;(async () => {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (user) statusEl.textContent = 'Statut : connecté'
+  })()
+
+  // Intercepter “Reprendre le dialogue” si non connecté → proposer signup
+  const resumeBtn = document.querySelector('.bar a')
+  resumeBtn?.addEventListener('click', async (e) => {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) {
+      // redirige doucement vers la création d’espace
+      e.preventDefault()
+      window.location.href = './signup.html'
     }
-  </style>
-  </head>
-<body class="bg-creamy-white dark:bg-background-dark font-display">
-<div class="relative flex min-h-screen w-full flex-col overflow-hidden">
-<div class="pointer-events-none absolute inset-0 z-0">
-<div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full" style="background: radial-gradient(circle, rgba(173, 216, 230, 0.2) 0%, rgba(173, 216, 230, 0) 70%);"></div>
-<div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full" style="background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(212, 175, 55, 0) 70%);"></div>
-</div>
-<header class="sticky top-0 z-10 bg-creamy-white/80 dark:bg-background-dark/80 backdrop-blur-sm">
-<div class="container mx-auto px-4">
-<div class="flex h-16 items-center justify-between">
-<h1 class="text-[#101318] dark:text-white text-xl font-bold font-playfair">Aurum</h1>
-<nav class="flex border-b border-transparent">
-<a class="flex flex-col items-center justify-center border-b-[2px] border-b-transparent px-4 py-2 text-[#5e6e8d] dark:text-gray-400" href="#">
-<p class="text-sm font-bold leading-normal">Accueil</p>
-</a>
-<a class="flex flex-col items-center justify-center border-b-[2px] border-b-[#101318] dark:border-b-white px-4 py-2 text-[#101318] dark:text-white" href="#">
-<p class="text-sm font-bold leading-normal">Dialogue</p>
-</a>
-</nav>
-</div>
-</div>
-</header>
-<main class="flex flex-1 items-center justify-center p-4">
-<div class="relative w-full max-w-2xl">
-<div class="flex flex-col items-stretch justify-start rounded-xl bg-white/70 dark:bg-gray-900/50 backdrop-blur-md shadow-card p-6 sm:p-8 md:p-10">
-<div class="flex w-full grow flex-col items-stretch justify-center gap-2 text-center">
-<h2 class="text-[#101318] dark:text-white text-4xl md:text-5xl font-bold font-playfair">Commençons.</h2>
-<p class="text-[#5e6e8d] dark:text-gray-300 text-base font-normal leading-normal max-w-md mx-auto">Qu’est-ce qui vous habite, en ce moment ?...</p>
-</div>
-<div class="mt-8 mb-6">
-<label class="flex flex-col min-w-40 flex-1">
-<textarea class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-white/50 dark:bg-gray-800/50 text-bluish-gray dark:text-gray-300 shadow-sm focus:outline-0 focus:ring-2 focus:ring-night-blue/20 p-4 text-base font-normal leading-normal transition-all duration-300 placeholder:text-bluish-gray/70 dark:placeholder:text-gray-500 min-h-60"></textarea>
-</label>
-</div>
-<div class="flex px-4 py-3">
-<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-night-blue text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
-<span class="truncate">Entrer dans le dialogue</span>
-</button>
-</div>
-</div>
-</div>
-</main>
-</div>
-</body></html>
+  })
+</script>
+
+<body class="antialiased font-sans selection:bg-accent/25 selection:text-ink">
+
+  <!-- Contenu principal -->
+  <main class="min-h-[100dvh] pb-28">
+    <!-- Lien retour discret -->
+    <div class="max-w-3xl mx-auto px-5 pt-6">
+      <a href="../index.html" class="inline-flex items-center gap-2 text-sm text-primary opacity-80 hover:opacity-100">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z"/></svg>
+        Revenir
+      </a>
+    </div>
+
+    <!-- Titre très discret -->
+    <section class="max-w-3xl mx-auto px-5 mt-4 mb-2 text-center">
+      <h1 class="font-serif text-2xl sm:text-3xl tracking-tight">Dialogue</h1>
+      <p class="muted text-sm mt-2">Un espace calme pour formuler ce qui se présente.</p>
+    </section>
+
+    <!-- Zone conversation -->
+    <section class="max-w-3xl mx-auto px-5">
+      <div id="chat" class="rounded-xl bg-white shadow-soft p-4 sm:p-6 space-y-4 card border border-black/5 border-faint">
+        <!-- Message d’accueil -->
+        <div class="flex gap-3">
+          <div class="shrink-0 mt-1 h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs">A</div>
+          <div class="bubble-bot bg-white rounded-lg px-4 py-3 text-[15px] leading-relaxed">
+            Quand tu es prêt, écris simplement <em>ce qui se présente</em>.<br/>
+            Tu peux commencer par une phrase ordinaire.
+          </div>
+        </div>
+
+        <!-- Quick intents (les 5 portes d’entrée) -->
+        <div id="intents" class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+          <button data-intent="Je ne comprends pas ce que je ressens." class="intent-btn text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">Je ne comprends pas ce que je ressens.</button>
+          <button data-intent="J’ai trop de choses en tête." class="intent-btn text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">J’ai trop de choses en tête.</button>
+          <button data-intent="J’hésite, je dois faire un choix." class="intent-btn text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">J’hésite, je dois faire un choix.</button>
+          <button data-intent="Je ne comprends pas ma réaction (ou celle de l’autre)." class="intent-btn text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">Je ne comprends pas une réaction.</button>
+          <button data-intent="J’ai besoin d’un endroit pour déposer ce que je porte." class="intent-btn sm:col-span-2 text-left rounded-lg border border-black/10 bg-white px-3 py-2 hover:bg-black/5">J’ai besoin de déposer.</button>
+        </div>
+
+        <!-- Messages seront injectés ici -->
+      </div>
+    </section>
+
+    <!-- Saisie -->
+    <section class="max-w-3xl mx-auto px-5 mt-4">
+      <form id="composer" class="flex gap-2">
+        <input id="input" type="text" inputmode="text" autocomplete="off"
+               placeholder="Écris ici, simplement…"
+               class="w-full rounded-lg border border-black/10 bg-white px-4 h-12 focus:ring-0 focus:border-black/20"/>
+        <button type="submit"
+                class="shrink-0 rounded-lg bg-primary text-white h-12 px-4 hover:bg-primary/90">
+          Envoyer
+        </button>
+      </form>
+      <p class="muted text-xs mt-2">Confidentiel. Rien n’est transmis — la conversation reste dans ton navigateur.</p>
+    </section>
+
+    <!-- Intégration : Phrase repère -->
+    <section class="max-w-3xl mx-auto px-5 mt-8 hidden" id="integration">
+      <div class="rounded-xl bg-white shadow-soft p-4 sm:p-5 border border-black/5 border-faint">
+        <h2 class="font-semibold">Ce que tu veux garder avec toi</h2>
+        <p class="muted text-sm mt-1">Écris une courte phrase qui éclaire la suite. Elle restera accessible ici.</p>
+        <div class="mt-3 flex gap-2">
+          <input id="repere" type="text" maxlength="160"
+                 placeholder="Aujourd’hui, l’essentiel pour moi est…"
+                 class="w-full rounded-lg border border-black/10 bg-white px-3 h-11 focus:ring-0 focus:border-black/20"/>
+          <button id="saveRepere" class="shrink-0 rounded-lg bg-primary text-white h-11 px-4 hover:bg-primary/90">Enregistrer</button>
+        </div>
+        <p id="savedMsg" class="text-xs mt-2 hidden">Phrase enregistrée. Tu pourras la retrouver en revenant ici.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Barre d’état -->
+  <div class="fixed bottom-3 inset-x-0">
+    <div class="max-w-3xl mx-auto px-5">
+      <div class="bar rounded-xl border border-black/10 bg-white/80 backdrop-blur py-2.5 px-3.5 flex items-center justify-between text-sm shadow-soft">
+        <span class="muted" id="status">Statut : prêt</span>
+        <a href="../index.html" class="px-3 py-1.5 rounded-md bg-primary text-white hover:bg-primary/90">Fermer l’espace</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logique non-directive locale (aucun backend) -->
+  <script>
+    const chat = document.getElementById('chat');
+    const form = document.getElementById('composer');
+    const input = document.getElementById('input');
+    const intents = document.getElementById('intents');
+    const statusEl = document.getElementById('status');
+    const integration = document.getElementById('integration');
+    const repereEl = document.getElementById('repere');
+    const saveRepereBtn = document.getElementById('saveRepere');
+    const savedMsg = document.getElementById('savedMsg');
+
+    const STORAGE_KEY = 'aurum_dialogue_v1';
+    const REPERE_KEY  = 'aurum_repere_v1';
+
+    // Templates de questions non-directives (rotation)
+    const prompts = [
+      (t)=>`Je t’entends. Si tu devais mettre des mots très simples sur “${t}”, lesquels viendraient ?`,
+      (t)=>`Dans ce que tu viens d’écrire, qu’est-ce qui te touche le plus maintenant ?`,
+      (t)=>`Si on ralentit un instant : quelle petite partie de “${t}” demande le plus d’attention ?`,
+      (t)=>`Quand tu dis “${t}”, qu’est-ce que ça veut dire pour toi aujourd’hui, sans analyser ?`,
+      (t)=>`Si une phrase devait résumer ce que tu viens d’exprimer, à quoi ressemblerait-elle ?`
+    ];
+    let turn = 0;
+
+    // Restaure le fil et la phrase repère
+    function restore() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        saved.forEach(msg => render(msg.role, msg.text, false));
+        if (saved.length) intents?.remove();
+        const rep = localStorage.getItem(REPERE_KEY);
+        if (rep) {
+          integration.classList.remove('hidden');
+          repereEl.value = rep;
+        }
+      } catch(e) {}
+      scrollToEnd();
+    }
+
+    function persist(role, text) {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      saved.push({ role, text });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+    }
+
+    function render(role, text, persistIt = true) {
+      const row = document.createElement('div');
+      row.className = 'flex gap-3';
+
+      const avatar = document.createElement('div');
+      avatar.className = 'shrink-0 mt-1 h-6 w-6 rounded-full flex items-center justify-center text-xs ' +
+        (role === 'user' ? 'bg-primary text-white' : 'bg-primary/10 text-primary');
+      avatar.textContent = role === 'user' ? 'Tu' : 'A';
+
+      const bubble = document.createElement('div');
+      bubble.className = (role === 'user'
+        ? 'bubble-user bg-white rounded-lg px-4 py-3 text-[15px] leading-relaxed border border-black/5'
+        : 'bubble-bot bg-white rounded-lg px-4 py-3 text-[15px] leading-relaxed');
+
+      bubble.textContent = text;
+
+      row.appendChild(avatar);
+      row.appendChild(bubble);
+      chat.appendChild(row);
+
+      if (persistIt) persist(role, text);
+      scrollToEnd();
+    }
+
+    function scrollToEnd() {
+      setTimeout(()=> window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }), 50);
+    }
+
+    function softQuestion(userText) {
+      const i = turn % prompts.length;
+      const q = prompts[i](userText.trim());
+      turn++;
+      setTimeout(()=> render('bot', q), 350);
+    }
+
+    // Intents rapides
+    if (intents) {
+      intents.querySelectorAll('.intent-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          render('user', btn.dataset.intent || '');
+          intents.remove();
+          softQuestion(btn.dataset.intent || '');
+        });
+      });
+    }
+
+    // Soumission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = (input.value || '').trim();
+      if (!val) return;
+      render('user', val);
+      input.value = '';
+      statusEl.textContent = 'Statut : en cours';
+      softQuestion(val);
+
+      // Proposer l’intégration (phrase repère) après quelques échanges
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      if (saved.filter(m => m.role === 'user').length >= 3) {
+        integration.classList.remove('hidden');
+      }
+      setTimeout(()=> statusEl.textContent = 'Statut : prêt', 600);
+    });
+
+    // Enregistrer la phrase repère
+    saveRepereBtn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const t = (repereEl.value || '').trim();
+      localStorage.setItem(REPERE_KEY, t);
+      savedMsg.classList.remove('hidden');
+      setTimeout(()=> savedMsg.classList.add('hidden'), 1400);
+    });
+
+    // Première restauration
+    restore();
+  </script>
+</body>
+</html>

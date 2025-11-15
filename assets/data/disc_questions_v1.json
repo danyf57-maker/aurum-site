@@ -1,0 +1,250 @@
+{
+  "version": "disc_questions_v1",
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "Quand une situation inattendue arrive, je…",
+      "options": [
+        { "id": "q1a", "label": "Agis tout de suite", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q1b", "label": "Cherche l'enthousiasme autour de moi", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q1c", "label": "Reste calme et observe", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q1d", "label": "Analyse chaque détail avant d'agir", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q2",
+      "prompt": "Face à une décision familiale, je préfère…",
+      "options": [
+        { "id": "q2a", "label": "Décider et passer à l'action", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q2b", "label": "Rassembler les avis", "weights": { "D": 1, "I": 3, "S": 0, "C": 0 } },
+        { "id": "q2c", "label": "Chercher à préserver l'harmonie", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q2d", "label": "Peser méthodiquement le pour et le contre", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q3",
+      "prompt": "Dans un moment social, je me sens nourri lorsque…",
+      "options": [
+        { "id": "q3a", "label": "Je relève un défi amusant", "weights": { "D": 3, "I": 2, "S": 0, "C": 0 } },
+        { "id": "q3b", "label": "Je partage une histoire inspirante", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q3c", "label": "Je soutiens discrètement quelqu'un", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q3d", "label": "Je comprends la logique des échanges", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q4",
+      "prompt": "Quand un proche hésite, j'ai tendance à…",
+      "options": [
+        { "id": "q4a", "label": "Le pousser à choisir", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q4b", "label": "L'encourager par des images positives", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q4c", "label": "Lui proposer d'attendre tranquillement", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q4d", "label": "Analyser avec lui chaque option", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q5",
+      "prompt": "Ma façon de gérer un conflit est souvent…",
+      "options": [
+        { "id": "q5a", "label": "Aller droit au point sensible", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q5b", "label": "Rendre la conversation plus légère", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q5c", "label": "Écouter longuement chaque partie", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q5d", "label": "Clarifier les faits calmement", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q6",
+      "prompt": "Lorsque j'ai du temps libre, je…",
+      "options": [
+        { "id": "q6a", "label": "Cherche un projet stimulant", "weights": { "D": 3, "I": 2, "S": 0, "C": 0 } },
+        { "id": "q6b", "label": "Invite des amis spontanément", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q6c", "label": "Savoure le calme", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q6d", "label": "Planifie et range mes idées", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q7",
+      "prompt": "Quand quelqu'un me confie ses doutes, je…",
+      "options": [
+        { "id": "q7a", "label": "Propose une piste rapide", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q7b", "label": "Lui partage un récit encourageant", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q7c", "label": "Crée un espace d'écoute silencieux", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q7d", "label": "Pose des questions précises", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q8",
+      "prompt": "Ma motivation monte quand…",
+      "options": [
+        { "id": "q8a", "label": "Un défi me demande d'être audacieux", "weights": { "D": 3, "I": 2, "S": 0, "C": 0 } },
+        { "id": "q8b", "label": "Je peux partager mon énergie", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q8c", "label": "Je rends service en douceur", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q8d", "label": "Je perfectionne quelque chose", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q9",
+      "prompt": "Dans ma famille, on me reconnait pour…",
+      "options": [
+        { "id": "q9a", "label": "Ma capacité à trancher", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q9b", "label": "Mon côté solaire", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q9c", "label": "Ma présence douce", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q9d", "label": "Mon sens du détail", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q10",
+      "prompt": "Quand je dois apprendre quelque chose, je préfère…",
+      "options": [
+        { "id": "q10a", "label": "Me lancer et corriger ensuite", "weights": { "D": 3, "I": 2, "S": 0, "C": 0 } },
+        { "id": "q10b", "label": "Partager le processus avec d'autres", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q10c", "label": "Prendre mon temps", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q10d", "label": "Comprendre chaque règle", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q11",
+      "prompt": "Quand je sens la pression, ma première réaction est…",
+      "options": [
+        { "id": "q11a", "label": "Accélérer", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q11b", "label": "Chercher du soutien", "weights": { "D": 1, "I": 3, "S": 0, "C": 0 } },
+        { "id": "q11c", "label": "Ralentir", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q11d", "label": "Construire un plan détaillé", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q12",
+      "prompt": "Dans les projets communs, je m'occupe souvent…",
+      "options": [
+        { "id": "q12a", "label": "De garder le cap", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q12b", "label": "De créer l'élan collectif", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q12c", "label": "De soutenir chacun", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q12d", "label": "De vérifier les détails", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q13",
+      "prompt": "Quand un proche traverse une émotion forte, je…",
+      "options": [
+        { "id": "q13a", "label": "L'aide à avancer", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q13b", "label": "Lui offre des perspectives positives", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q13c", "label": "Reste présent et silencieux", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q13d", "label": "Structure ses pensées", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q14",
+      "prompt": "Je me sens utile quand…",
+      "options": [
+        { "id": "q14a", "label": "Je résous quelque chose rapidement", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q14b", "label": "J'inspire les autres", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q14c", "label": "Je crée un climat paisible", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q14d", "label": "J'apporte de la précision", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q15",
+      "prompt": "Si un plan change à la dernière minute, je…",
+      "options": [
+        { "id": "q15a", "label": "Propose une autre route sur-le-champ", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q15b", "label": "Transforme ça en expérience légère", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q15c", "label": "Accepte simplement", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q15d", "label": "Replanifie pour garder de la structure", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q16",
+      "prompt": "Dans mes conversations, je suis plutôt…",
+      "options": [
+        { "id": "q16a", "label": "Direct et concis", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q16b", "label": "Expressif et imagé", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q16c", "label": "Calme et accueillant", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q16d", "label": "Précis et structuré", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q17",
+      "prompt": "Ma plus grande satisfaction vient quand…",
+      "options": [
+        { "id": "q17a", "label": "Je dépasse une limite", "weights": { "D": 3, "I": 2, "S": 0, "C": 0 } },
+        { "id": "q17b", "label": "Je crée un souvenir collectif", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q17c", "label": "Je soutiens quelqu'un en profondeur", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q17d", "label": "Je mets de l'ordre dans une zone floue", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q18",
+      "prompt": "Face à une critique, je…",
+      "options": [
+        { "id": "q18a", "label": "Réponds fermement", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q18b", "label": "Relativise avec humour", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q18c", "label": "Prends du recul", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q18d", "label": "Analyse la part de vrai", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q19",
+      "prompt": "Dans les imprévus, j'apprécie…",
+      "options": [
+        { "id": "q19a", "label": "Le côté stimulant", "weights": { "D": 3, "I": 2, "S": 0, "C": 0 } },
+        { "id": "q19b", "label": "L'occasion de créer du lien", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q19c", "label": "L'opportunité de ralentir", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q19d", "label": "Le défi d'ajuster le plan", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q20",
+      "prompt": "Je me sens respecté quand…",
+      "options": [
+        { "id": "q20a", "label": "On reconnaît ma détermination", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q20b", "label": "On valorise ma créativité sociale", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q20c", "label": "On me confie un espace d'écoute", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q20d", "label": "On salue ma fiabilité", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q21",
+      "prompt": "Dans un désaccord, je préfère…",
+      "options": [
+        { "id": "q21a", "label": "Aller à l'essentiel", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q21b", "label": "Rendre l'atmosphère plus légère", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q21c", "label": "Apaiser chacun", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q21d", "label": "Clarifier avec précision", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q22",
+      "prompt": "Quand je planifie ma semaine, je…",
+      "options": [
+        { "id": "q22a", "label": "Réserve des plages pour avancer vite", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q22b", "label": "Ajoute des moments sociaux", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q22c", "label": "Protège du temps calme", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q22d", "label": "Structure chaque tâche", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q23",
+      "prompt": "On me demande souvent…",
+      "options": [
+        { "id": "q23a", "label": "De trancher rapidement", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q23b", "label": "D'animer ou détendre", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q23c", "label": "D'écouter longuement", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q23d", "label": "D'organiser avec rigueur", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    },
+    {
+      "id": "q24",
+      "prompt": "Quand je me sens aligné, c'est parce que…",
+      "options": [
+        { "id": "q24a", "label": "Je progresse vers mes objectifs", "weights": { "D": 3, "I": 1, "S": 0, "C": 0 } },
+        { "id": "q24b", "label": "Je partage de l'énergie positive", "weights": { "D": 0, "I": 3, "S": 1, "C": 0 } },
+        { "id": "q24c", "label": "Je me sens relié aux autres", "weights": { "D": 0, "I": 0, "S": 3, "C": 1 } },
+        { "id": "q24d", "label": "Je garde une structure claire", "weights": { "D": 0, "I": 0, "S": 1, "C": 3 } }
+      ]
+    }
+  ],
+  "freeText": {
+    "id": "free_text",
+    "prompt": "Si tu veux ajouter quelque chose sur ton énergie du moment, écris-le ici.",
+    "placeholder": "Exemple : Ces temps-ci, je me sens…"
+  }
+}

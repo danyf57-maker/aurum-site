@@ -1,0 +1,405 @@
+{
+  "version": "profile_templates_v1",
+  "profiles": {
+    "D_D": {
+      "title": "Quand l’impulsion devient colonne vertébrale",
+      "dominant": "D",
+      "secondary": "D",
+      "strengths": [
+        "Vous repérez vite l’essentiel et ouvrez la marche sans bruit superflu.",
+        "Votre énergie directe crée un appel d’air pour celles et ceux qui hésitent.",
+        "Vous gardez la tête froide lorsque l’urgence gagne du terrain."
+      ],
+      "limits": [
+        "Cette intensité peut parfois masquer ce que vous ressentez vraiment.",
+        "Le rythme que vous proposez dépasse parfois celui de votre entourage.",
+        "Votre regard se tourne vers l’action avant de prendre des nouvelles de votre corps."
+      ],
+      "behaviors": {
+        "environment": [
+          "Votre entourage perçoit une forme d’assurance qui sécurise autant qu’elle impressionne.",
+          "Les décisions se prennent vite autour de vous, ce qui peut laisser peu de place aux détours."
+        ],
+        "backdrop": [
+          "Un besoin réel d’écoute silencieuse apparait quand la pression retombe.",
+          "Les nuances émotionnelles reviennent dès que vous acceptez de ralentir."
+        ]
+      }
+    },
+    "D_I": {
+      "title": "Quand l’impulsion rencontre la lumière",
+      "dominant": "D",
+      "secondary": "I",
+      "strengths": [
+        "Vous savez ouvrir la voie tout en gardant une parole chaleureuse.",
+        "Votre présence installe de la confiance, même dans l’incertitude.",
+        "Vous transformez une intention en mouvement partagé avec aisance."
+      ],
+      "limits": [
+        "L’enthousiasme prend parfois la place d’un silence nécessaire.",
+        "Vous promettez plus que ce que votre énergie réelle peut offrir.",
+        "Les détails s’effacent si la conversation devient trop dense."
+      ],
+      "behaviors": {
+        "environment": [
+          "Votre entourage se sent entraîné dans une dynamique constructive.",
+          "On se tourne vers vous pour retrouver une forme de direction claire."
+        ],
+        "backdrop": [
+          "Une fatigue douce peut apparaitre quand vous portez tout seul l’élan collectif.",
+          "Un espace simple, sans sollicitations, vous aide à trier vos propres besoins."
+        ]
+      }
+    },
+    "D_S": {
+      "title": "Quand l’impulsion veille sur la douceur",
+      "dominant": "D",
+      "secondary": "S",
+      "strengths": [
+        "Vous prenez position tout en gardant une main posée sur le climat relationnel.",
+        "Vous créez des repères stables pour avancer sans précipitation inutile.",
+        "Votre parole sait rester simple, même quand les enjeux montent."
+      ],
+      "limits": [
+        "Vous portez parfois seul ce qui mériterait d’être partagé.",
+        "Votre besoin d’apaisement entre en tension avec votre envie d’aller vite.",
+        "Votre corps vous signale tardivement qu’il a besoin de relâche."
+      ],
+      "behaviors": {
+        "environment": [
+          "Les proches ressentent un alliage de fermeté douce et de vigilance.",
+          "Vous rassurez en silence, mais l’on peut vous croire inébranlable."
+        ],
+        "backdrop": [
+          "Une parole sincère adressée à quelqu’un de sûr vous permet de souffler.",
+          "Offrir du temps à votre propre lenteur nourrit votre solidité."
+        ]
+      }
+    },
+    "D_C": {
+      "title": "Quand l’impulsion épouse la précision",
+      "dominant": "D",
+      "secondary": "C",
+      "strengths": [
+        "Vous donnez une colonne vertébrale claire aux projets flous.",
+        "Vous savez traduire une vision en étapes structurées.",
+        "Votre exigence aide à garder le cap lorsque tout vacille."
+      ],
+      "limits": [
+        "Votre regard rapide pointe d’abord ce qui manque.",
+        "Vous partagez peu ce que vous ressentez, par pudeur ou efficacité.",
+        "Votre besoin de contrôle grandit sans prévenir lorsque la pression monte."
+      ],
+      "behaviors": {
+        "environment": [
+          "Votre entourage voit un repère solide, parfois difficile à rejoindre.",
+          "Les conversations deviennent plus pragmatiques en votre présence."
+        ],
+        "backdrop": [
+          "Dire ce qui vous touche, même en deux phrases, apaise le mental.",
+          "Accepter qu’une situation reste inachevée soulage votre respiration."
+        ]
+      }
+    },
+    "I_D": {
+      "title": "Quand la lumière trace un sillon",
+      "dominant": "I",
+      "secondary": "D",
+      "strengths": [
+        "Vous créez du lien tout en gardant une direction claire.",
+        "Vous invitez les autres à sortir de l’immobilité sans les brusquer.",
+        "Votre énergie raconte qu’une issue est possible."
+      ],
+      "limits": [
+        "Vous prenez parfois plus de projets que votre énergie ne peut porter.",
+        "Votre envie de convaincre vous éloigne de vos propres sensations.",
+        "Les transitions restent superficielles quand vous manquez de repos."
+      ],
+      "behaviors": {
+        "environment": [
+          "On se sent encouragé à oser, même timidement.",
+          "Les échanges gagnent en rythme, parfois plus qu’attendu."
+        ],
+        "backdrop": [
+          "Un espace d’écriture ou d’écoute vous permet de déposer vos doutes.",
+          "Réduire volontairement le nombre de sujets rouvre votre souffle."
+        ]
+      }
+    },
+    "I_I": {
+      "title": "Quand la lumière s’écoute elle-même",
+      "dominant": "I",
+      "secondary": "I",
+      "strengths": [
+        "Vous captez les nuances relationnelles et les partagez avec tact.",
+        "Votre imagination ouvre des horizons même dans les moments lourds.",
+        "Vous redonnez du relief aux expériences du quotidien."
+      ],
+      "limits": [
+        "Vous vous oubliez lorsque l’ambiance demande trop de présence.",
+        "Les conversations importantes peuvent être repoussées à demain.",
+        "La reconnaissance extérieure devient parfois indispensable."
+      ],
+      "behaviors": {
+        "environment": [
+          "On se sent accueilli tel qu’on est, sans nécessité d’explication.",
+          "Votre voix nourrit la créativité du groupe."
+        ],
+        "backdrop": [
+          "Un temps sans stimulation vous aide à sentir ce qui est vrai pour vous.",
+          "Partager vos limites à voix haute apaise votre rythme intérieur."
+        ]
+      }
+    },
+    "I_S": {
+      "title": "Quand la lumière se pose",
+      "dominant": "I",
+      "secondary": "S",
+      "strengths": [
+        "Vous enveloppez l’autre d’une écoute chaleureuse.",
+        "Votre parole apaise les situations tendues sans nier ce qui est vécu.",
+        "Vous reliez discrètement les personnes qui ne se parlent pas."
+      ],
+      "limits": [
+        "Vous portez des émotions qui ne sont pas les vôtres.",
+        "Votre besoin de préserver l’harmonie peut différer une prise de position.",
+        "Votre fatigue s’installe sans bruit et devient difficile à nommer."
+      ],
+      "behaviors": {
+        "environment": [
+          "Les proches se sentent compris, parfois au détriment de votre propre espace.",
+          "On attend de vous un soutien constant."
+        ],
+        "backdrop": [
+          "Vous retrouver seul avec une musique ou une marche redonne de la clarté.",
+          "Dire non doucement est une manière de protéger la relation."
+        ]
+      }
+    },
+    "I_C": {
+      "title": "Quand la lumière cartographie",
+      "dominant": "I",
+      "secondary": "C",
+      "strengths": [
+        "Vous traduisez des idées complexes en images accessibles.",
+        "Vous savez donner du sens sans perdre la rigueur nécessaire.",
+        "Votre curiosité ouvre des portes inattendues."
+      ],
+      "limits": [
+        "Vous pouvez rester dans la réflexion pour éviter l’émotion brute.",
+        "Votre enthousiasme se heurte parfois à votre exigence interne.",
+        "La conclusion d’un sujet peut être repoussée par souci de perfection."
+      ],
+      "behaviors": {
+        "environment": [
+          "On vous voit comme un passeur entre émotion et logique.",
+          "Votre présence apporte de la clarté sur les intentions."
+        ],
+        "backdrop": [
+          "Exprimer un ressenti sans l’expliquer entièrement apaise votre mental.",
+          "Créer sans but précis rend votre créativité plus légère."
+        ]
+      }
+    },
+    "S_D": {
+      "title": "Quand la douceur tient la barre",
+      "dominant": "S",
+      "secondary": "D",
+      "strengths": [
+        "Vous veillez sur le cadre tout en avançant lorsque c’est nécessaire.",
+        "Votre patience reste présente même sous pression.",
+        "Vous rassurez par votre constance."
+      ],
+      "limits": [
+        "Vous attendez parfois trop pour exprimer ce qui ne convient plus.",
+        "Votre propre rythme passe après celui des autres.",
+        "Les décisions prises pour faire plaisir peuvent vous éloigner de vous-même."
+      ],
+      "behaviors": {
+        "environment": [
+          "Votre entourage sent une base solide qui tempère les excès.",
+          "On s’appuie sur vous pour garder le cap."
+        ],
+        "backdrop": [
+          "Dire clairement ce que vous ne souhaitez plus porter libère de l’espace.",
+          "Vous offrir une pause volontaire après chaque décision entretient votre calme."
+        ]
+      }
+    },
+    "S_I": {
+      "title": "Quand la douceur illumine",
+      "dominant": "S",
+      "secondary": "I",
+      "strengths": [
+        "Vous accueillez les récits des autres sans jugement.",
+        "Votre présence invite chacun à être authentique.",
+        "Vous savez encourager avec délicatesse."
+      ],
+      "limits": [
+        "Vous absorbez parfois l’humeur du groupe.",
+        "Dire non reste difficile lorsque vous sentez la fragilité de l’autre.",
+        "Votre fatigue se camoufle derrière un sourire apaisant."
+      ],
+      "behaviors": {
+        "environment": [
+          "On vous confie des confidences, convaincu que vous les garderez en sécurité.",
+          "Votre maison émotionnelle devient un refuge pour beaucoup."
+        ],
+        "backdrop": [
+          "Nommer vos besoins même brièvement maintient votre stabilité.",
+          "Créer un rituel où vous ne portez personne d’autre préserve votre énergie."
+        ]
+      }
+    },
+    "S_S": {
+      "title": "Quand la douceur devient paysage",
+      "dominant": "S",
+      "secondary": "S",
+      "strengths": [
+        "Vous offrez une constance rassurante dans les saisons agitées.",
+        "Vous sentez intuitivement quand ralentir pour le bien de tous.",
+        "Votre écoute longue permet aux autres de déposer ce qu’ils n’osent dire."
+      ],
+      "limits": [
+        "Le changement brusque vous bouscule plus que vous ne le montrez.",
+        "Vous gardez pour vous des tensions qui mériteraient d’être partagées.",
+        "Votre besoin de paix peut devenir une fuite du conflit nécessaire."
+      ],
+      "behaviors": {
+        "environment": [
+          "On vient se reposer près de vous, certain d’être accueilli.",
+          "Vous devenez la mémoire affective de votre entourage."
+        ],
+        "backdrop": [
+          "Bouger un élément de votre routine vous redonne l’impression de respirer.",
+          "Exprimer vos préférences sans justification nourrit votre intégrité."
+        ]
+      }
+    },
+    "S_C": {
+      "title": "Quand la douceur s’organise",
+      "dominant": "S",
+      "secondary": "C",
+      "strengths": [
+        "Vous conjuguez souci du détail et bienveillance.",
+        "Vous anticipez les besoins tacites avec finesse.",
+        "Vous offrez des repères stables sans rigidité excessive."
+      ],
+      "limits": [
+        "Vous reprenez ce que vous avez délégué dès que la qualité baisse.",
+        "Votre exigence envers vous-même reste cachée.",
+        "Vous avez du mal à nommer votre propre fatigue."
+      ],
+      "behaviors": {
+        "environment": [
+          "Votre entourage se sent pris en charge et protégé.",
+          "Les transitions passent mieux lorsque vous êtes là."
+        ],
+        "backdrop": [
+          "Partager vos doutes avant qu’ils ne deviennent du stress allège votre poitrine.",
+          "Laisser un détail volontairement imparfait vous apprend à souffler."
+        ]
+      }
+    },
+    "C_D": {
+      "title": "Quand la rigueur impulse",
+      "dominant": "C",
+      "secondary": "D",
+      "strengths": [
+        "Vous transformez la complexité en plans précis.",
+        "Vous gardez sang-froid et recul même sous tension.",
+        "Votre regard lucide protège la cohérence collective."
+      ],
+      "limits": [
+        "Vous vous coupez de vos émotions pour rester efficace.",
+        "Votre critique intérieure prend parfois toute la place.",
+        "Vous retardez l’action lorsque toutes les données manquent."
+      ],
+      "behaviors": {
+        "environment": [
+          "On s’appuie sur votre analyse pour trancher.",
+          "Votre parole peut paraître tranchante lorsque vous allez droit au point."
+        ],
+        "backdrop": [
+          "Exprimer vos ressentis sans les justifier apaise votre système.",
+          "Autoriser une part d’inconnu redonne de la souplesse à votre pensée."
+        ]
+      }
+    },
+    "C_I": {
+      "title": "Quand la rigueur s’éclaire",
+      "dominant": "C",
+      "secondary": "I",
+      "strengths": [
+        "Vous expliquez avec clarté ce qui semble confus.",
+        "Vous captez des subtilités que d’autres ne voient pas.",
+        "Votre sensibilité intellectuelle inspire la réflexion."
+      ],
+      "limits": [
+        "Vous restez dans votre tête pour éviter la vulnérabilité.",
+        "Vous doutez de vos intuitions quand elles ne sont pas prouvées.",
+        "Vous vous isolez lorsque les échanges deviennent trop bruyants."
+      ],
+      "behaviors": {
+        "environment": [
+          "Votre entourage reçoit des repères rassurants.",
+          "Vos mots peuvent toutefois paraître lointains si l’émotion est forte."
+        ],
+        "backdrop": [
+          "Dire “je ne sais pas quoi en penser pour le moment” vous autorise à exister sans solution.",
+          "Partager vos idées inachevées avec une personne sûre nourrit votre courage."
+        ]
+      }
+    },
+    "C_S": {
+      "title": "Quand la rigueur apaise",
+      "dominant": "C",
+      "secondary": "S",
+      "strengths": [
+        "Vous construisez des cadres fiables et rassurants.",
+        "Vous veillez à ce que la parole donnée soit respectée.",
+        "Vous écoutez en profondeur avant de conclure."
+      ],
+      "limits": [
+        "Vous pouvez rester accroché à un plan initial même s’il est dépassé.",
+        "Votre auto-critique vous fatigue plus que vous ne l’avouez.",
+        "Vous partagez vos désaccords seulement quand ils deviennent lourds."
+      ],
+      "behaviors": {
+        "environment": [
+          "Les autres sentent qu’il y a un endroit stable où revenir.",
+          "On vient chercher votre sens pratique pour traverser les transitions."
+        ],
+        "backdrop": [
+          "Dire ce que vous préférez avant que cela ne devienne une tension préserve la relation.",
+          "Accepter un geste spontané sans tout planifier nourrit votre sensibilité."
+        ]
+      }
+    },
+    "C_C": {
+      "title": "Quand la rigueur devient souffle",
+      "dominant": "C",
+      "secondary": "C",
+      "strengths": [
+        "Vous gardez la cohérence de bout en bout.",
+        "Vous honorez les engagements avec discrétion.",
+        "Vous offrez une vision précise qui rassure."
+      ],
+      "limits": [
+        "Vous craignez l’erreur et repoussez certaines initiatives.",
+        "Vos émotions restent souvent à l’arrière-plan.",
+        "Vous avez du mal à lâcher prise quand le cadre change."
+      ],
+      "behaviors": {
+        "environment": [
+          "Votre entourage s’appuie sur votre fiabilité.",
+          "On vous perçoit comme mesuré, parfois difficile à lire."
+        ],
+        "backdrop": [
+          "Partager un ressenti simple désamorce votre mental qui tourne en boucle.",
+          "Choisir une activité sans objectif vous reconnecte à la détente."
+        ]
+      }
+    }
+  }
+}

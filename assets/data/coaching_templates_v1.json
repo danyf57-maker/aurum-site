@@ -1,0 +1,133 @@
+{
+  "version": "coaching_templates_v1",
+  "modules": {
+    "D_D": {
+      "conseils": [
+        "Vous pouvez nommer ce que vous ressentez avant de choisir la prochaine action, même si cela tient en quelques mots.",
+        "Il est possible que partager un micro-espace de décision avec quelqu’un de confiance allège votre charge mentale.",
+        "Une piste serait d’expérimenter un rythme volontairement plus lent sur un sujet précis pour voir ce que cela ouvre."
+      ],
+      "pratique": "Cette semaine, réservez un moment court pour écrire ce qui bouge en vous après chaque décision importante."
+    },
+    "D_I": {
+      "conseils": [
+        "Vous pouvez vérifier si l’enthousiasme que vous offrez correspond à l’énergie dont vous disposez réellement.",
+        "Il est possible qu’écouter une réponse silencieuse avant de relancer une idée donne plus de profondeur à vos échanges.",
+        "Une piste serait de noter vos élans majeurs du jour et d’en choisir un seul à porter jusqu’au bout."
+      ],
+      "pratique": "Cette semaine, accordez-vous une conversation sans objectif avec une personne de confiance pour déposer vos ressentis bruts."
+    },
+    "D_S": {
+      "conseils": [
+        "Vous pouvez observer à quel moment vous prenez la main par réflexe pour protéger la paix.",
+        "Il est possible que demander explicitement de l’aide ouvre un espace de respiration insoupçonné.",
+        "Une piste serait de distinguer ce qui nécessite vraiment un rythme rapide de ce qui peut attendre."
+      ],
+      "pratique": "Cette semaine, bloquez un créneau fixe pour écouter votre corps avant de donner une nouvelle impulsion."
+    },
+    "D_C": {
+      "conseils": [
+        "Vous pouvez exprimer la raison émotionnelle d’une décision avant d’entrer dans les détails.",
+        "Il est possible que partager un brouillon imparfait renforce la confiance autour de vous.",
+        "Une piste serait d’accueillir les questions des autres sans y répondre immédiatement."
+      ],
+      "pratique": "Cette semaine, choisissez une tâche et laissez délibérément une part d’inconnu pour observer ce qui se passe en vous."
+    },
+    "I_D": {
+      "conseils": [
+        "Vous pouvez ralentir avant d’ouvrir une nouvelle piste afin de sentir ce qui mérite vraiment votre énergie.",
+        "Il est possible qu’un retour bref sur vos ressentis vous aide à préserver votre clarté émotionnelle.",
+        "Une piste serait de demander à une personne fiable de vous refléter la réalité de sa disponibilité."
+      ],
+      "pratique": "Cette semaine, planifiez un moment pour trier vos engagements et en libérer au moins un."
+    },
+    "I_I": {
+      "conseils": [
+        "Vous pouvez écrire la première phrase franche qui vous vient avant une conversation délicate.",
+        "Il est possible que la solitude choisie vous aide à écouter votre propre météo intérieure.",
+        "Une piste serait de partager une demande simple au lieu d’attendre un signe extérieur."
+      ],
+      "pratique": "Cette semaine, offrez-vous un créneau sans écran pour simplement ressentir ce qui est vivant."
+    },
+    "I_S": {
+      "conseils": [
+        "Vous pouvez vérifier si le soutien que vous offrez correspond à ce que vous pouvez réellement donner.",
+        "Il est possible qu’exprimer vos limites renforce la relation plutôt que de la fragiliser.",
+        "Une piste serait d’identifier une émotion qui vous appartient et une qui vient de l’autre."
+      ],
+      "pratique": "Cette semaine, planifiez une activité tournée vers vous seul, sans devoir rendre compte à personne."
+    },
+    "I_C": {
+      "conseils": [
+        "Vous pouvez partager une idée non finalisée pour voir comment elle respire à plusieurs.",
+        "Il est possible que l’humour serve parfois à éviter une vérité plus sensible.",
+        "Une piste serait de résumer ce que vous ressentez en trois phrases simples, sans analyse."
+      ],
+      "pratique": "Cette semaine, prenez un temps créatif sans objectif pour laisser émerger vos propres images."
+    },
+    "S_D": {
+      "conseils": [
+        "Vous pouvez remarquer où vous dites oui alors qu’une partie de vous aurait besoin d’un délai.",
+        "Il est possible qu’affirmer un besoin personnel devienne un repère pour votre entourage.",
+        "Une piste serait d’évaluer ce que vous gardez par loyauté et ce que vous pourriez déléguer."
+      ],
+      "pratique": "Cette semaine, choisissez une situation et écrivez ce dont vous avez réellement besoin avant d’agir."
+    },
+    "S_I": {
+      "conseils": [
+        "Vous pouvez nommer ce qui vous pèse avant que le poids ne devienne silencieux.",
+        "Il est possible que recevoir un soutien explicite vous aide à rester présent sans vous dissoudre.",
+        "Une piste serait de vérifier si vous accompagnez pour répondre à un besoin ou par réflexe."
+      ],
+      "pratique": "Cette semaine, offrez-vous un rituel doux où vous ne portez personne d’autre que vous."
+    },
+    "S_S": {
+      "conseils": [
+        "Vous pouvez introduire un changement minuscule pour observer comment votre corps réagit.",
+        "Il est possible que partager vos inquiétudes en amont évite une montée silencieuse de tension.",
+        "Une piste serait de décider volontairement ce que vous laissez de côté aujourd’hui."
+      ],
+      "pratique": "Cette semaine, prenez un instant pour formuler une phrase qui commence par « Pour moi, ce serait aidant si… »."
+    },
+    "S_C": {
+      "conseils": [
+        "Vous pouvez distinguer ce qui relève d’une vraie nécessité et ce qui vient d’une habitude de contrôle.",
+        "Il est possible que montrer un doute rende vos relations plus légères.",
+        "Une piste serait de demander une confirmation plutôt que d’imaginer le pire."
+      ],
+      "pratique": "Cette semaine, laissez volontairement un détail imparfait et observez ce que cela vous apprend."
+    },
+    "C_D": {
+      "conseils": [
+        "Vous pouvez expliquer ce que vous ressentez avant de détailler votre analyse.",
+        "Il est possible qu’accepter une part d’essai-erreur ouvre un espace de confiance.",
+        "Une piste serait de demander de l’aide quand la charge mentale devient trop dense."
+      ],
+      "pratique": "Cette semaine, accordez-vous un moment sans objectif pour ressentir ce qui se passe dans votre corps."
+    },
+    "C_I": {
+      "conseils": [
+        "Vous pouvez partager vos idées alors qu’elles sont encore incomplètes.",
+        "Il est possible qu’une émotion exprimée simplement gagne en clarté pour vous.",
+        "Une piste serait d’exprimer votre besoin plutôt que de tout anticiper."
+      ],
+      "pratique": "Cette semaine, choisissez un échange où vous direz « je ne sais pas encore » sans culpabilité."
+    },
+    "C_S": {
+      "conseils": [
+        "Vous pouvez nommer vos préférences avant de chercher la solution parfaite.",
+        "Il est possible qu’un pas modeste suffise à remettre du mouvement.",
+        "Une piste serait de dire quand vous avez besoin de temps pour intégrer un changement."
+      ],
+      "pratique": "Cette semaine, notez ce qui vous apaise vraiment quand la structure vacille."
+    },
+    "C_C": {
+      "conseils": [
+        "Vous pouvez considérer l’erreur comme un signal, non comme une faute.",
+        "Il est possible que vos proches aient besoin d’entendre votre ressenti autant que vos constats.",
+        "Une piste serait d’autoriser une improvisation contrôlée pour explorer ce que cela dégage."
+      ],
+      "pratique": "Cette semaine, bloquez un moment pour une activité sans performance, juste pour être présent."
+    }
+  }
+}

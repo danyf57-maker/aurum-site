@@ -6,13 +6,19 @@
   <title>Aurum — Créer mon espace</title>
   <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-  <style>body{background:#FAF9F7;color:#101418;font-family:Inter,system-ui,sans-serif}</style>
+  <style>
+    body{background:#FAF9F7;color:#101418;font-family:Inter,system-ui,sans-serif}
+    .muted{color:#5E6673}
+  </style>
 </head>
 <body class="antialiased">
   <main class="min-h-[100dvh] flex items-center">
     <div class="max-w-md mx-auto w-full px-6">
       <h1 class="text-2xl font-semibold text-center">Créer mon espace</h1>
-      <p class="text-sm text-center text-[#5E6673] mt-2">Reçois un lien magique par e-mail pour retrouver ton dialogue.</p>
+      <p class="text-sm text-center muted mt-2">
+        Reçois un lien magique par e-mail pour retrouver ton dialogue.
+      </p>
+
       <form id="signupForm" class="mt-6 space-y-3">
         <input id="email" type="email" required placeholder="ton@email.com"
                class="w-full h-12 rounded-lg border border-black/10 bg-white px-4 focus:border-black/20 focus:ring-0"/>
@@ -21,8 +27,12 @@
           Recevoir le lien magique
         </button>
       </form>
-      <p id="msg" class="text-sm text-center mt-3 hidden">Vérifie ta boîte mail. Tu peux fermer cette page.</p>
-      <p class="text-xs text-center mt-6"><a class="text-[#0A2240] underline" href="../index.html">Retour</a></p>
+
+      <div id="notice" class="hidden mt-3 rounded-lg bg-white border border-black/10 p-3 text-sm"></div>
+
+      <p class="text-xs text-center mt-6">
+        <a class="text-[#0A2240] underline" href="../index.html">Retour</a>
+      </p>
     </div>
   </main>
 
@@ -30,22 +40,35 @@
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
     const supabase = createClient(
       'https://jcxjojpwkjzawxcyppyf.supabase.co',
-      '<eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjeGpvanB3a2p6YXd4Y3lwcHlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3NjA3NjMsImV4cCI6MjA3NTMzNjc2M30.jmKkfQ9ARJzjKgUdHNZwvca3HldyUjYNaZoRWImY41Q>'
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpjeGpvanB3a2p6YXd4Y3lwcHlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3NjA3NjMsImV4cCI6MjA3NTMzNjc2M30.jmKkfQ9ARJzjKgUdHNZwvca3HldyUjYNaZoRWImY41Q'
     )
 
-    const form = document.getElementById('signupForm')
-    const email = document.getElementById('email')
-    const msg = document.getElementById('msg')
+    const form   = document.getElementById('signupForm')
+    const email  = document.getElementById('email')
+    const notice = document.getElementById('notice')
+
+    function show(msg, ok=false){
+      notice.textContent = msg
+      notice.classList.remove('hidden')
+      notice.style.borderColor = ok ? 'rgba(16,185,129,.3)' : 'rgba(0,0,0,.1)'
+    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault()
-      const { error } = await supabase.auth.signInWithOtp({
-        email: email.value,
-        options: { emailRedirectTo: location.origin + '/aurum-site/pages/dialogue.html' }
-      })
-      if (error) { alert(error.message); return }
-      msg.classList.remove('hidden')
-      form.classList.add('opacity-60','pointer-events-none')
+      try{
+        const redirect = 'https://danyf57-maker.github.io/aurum-site/pages/dialogue.html'
+        const { data, error } = await supabase.auth.signInWithOtp({
+          email: email.value,
+          options: { emailRedirectTo: redirect }
+        })
+        console.log('[Supabase/signInWithOtp] data:', data, 'error:', error)
+        if (error) { show('Erreur : ' + error.message); return }
+        show('Vérifie ta boîte mail. Le lien magique a été envoyé (pense aux spams).', true)
+        form.classList.add('opacity-60','pointer-events-none')
+      } catch(err){
+        console.error(err)
+        show('Erreur inattendue : ' + (err?.message || err))
+      }
     })
   </script>
 </body>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aurum — Données locales</title>
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: "#FAF9F7",
+            ink: "#101418",
+            mute: "#5E6673",
+            primary: "#0A2240",
+            accent: "#E1C56A"
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+            serif: ["Playfair Display", "serif"]
+          },
+          boxShadow: {
+            soft: "0 20px 40px rgba(0,0,0,.06)"
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #FAF9F7; color:#101418; }
+    .muted { color:#5E6673; }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <main class="min-h-screen flex flex-col">
+    <header class="px-5 pt-6 flex items-center justify-between">
+      <a href="../index.html" class="inline-flex items-center gap-2 text-sm text-primary opacity-80 hover:opacity-100">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z"/></svg>
+        Accueil
+      </a>
+      <span id="statusBar" class="text-sm px-4 py-2 rounded-full bg-white border border-black/10 shadow-sm">État : disponible</span>
+    </header>
+
+    <section class="flex-1">
+      <div class="max-w-3xl mx-auto px-5 py-10 space-y-8">
+        <div class="text-center">
+          <p class="text-sm uppercase tracking-[0.2em] text-mute">Confidentialité</p>
+          <h1 class="font-serif text-3xl sm:text-4xl mt-2">Mes données locales</h1>
+          <p class="muted mt-3">Tout est stocké sur ton appareil. Efface en un geste ce que tu souhaites.</p>
+        </div>
+
+        <div class="grid gap-4">
+          <article class="rounded-2xl bg-white shadow-soft border border-black/5 p-5 flex items-center justify-between">
+            <div>
+              <h2 class="font-semibold">Parcours de questions</h2>
+              <p class="muted text-sm" id="discStatus">Aucune donnée enregistrée.</p>
+            </div>
+            <button data-clear="disc" class="px-4 py-2 rounded-lg border border-black/10 hover:border-primary text-sm font-semibold">Effacer</button>
+          </article>
+
+          <article class="rounded-2xl bg-white shadow-soft border border-black/5 p-5 flex items-center justify-between">
+            <div>
+              <h2 class="font-semibold">Profil</h2>
+              <p class="muted text-sm" id="profileStatus">Aucun profil pour le moment.</p>
+            </div>
+            <button data-clear="profile" class="px-4 py-2 rounded-lg border border-black/10 hover:border-primary text-sm font-semibold">Effacer</button>
+          </article>
+
+          <article class="rounded-2xl bg-white shadow-soft border border-black/5 p-5 flex items-center justify-between">
+            <div>
+              <h2 class="font-semibold">Coaching</h2>
+              <p class="muted text-sm" id="coachingStatus">Pas encore de coaching.</p>
+            </div>
+            <button data-clear="coaching" class="px-4 py-2 rounded-lg border border-black/10 hover:border-primary text-sm font-semibold">Effacer</button>
+          </article>
+
+          <article class="rounded-2xl bg-white shadow-soft border border-black/5 p-5 flex items-center justify-between">
+            <div>
+              <h2 class="font-semibold">Tout effacer</h2>
+              <p class="muted text-sm">Supprime la session, le test, le profil et le coaching.</p>
+            </div>
+            <button data-clear="all" class="px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-primary/90">Effacer tout</button>
+          </article>
+        </div>
+
+        <div id="privacyMessage" class="text-center text-sm text-primary"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="../js/privacyPanel.js"></script>
+</body>
+</html>

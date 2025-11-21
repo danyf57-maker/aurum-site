@@ -8,6 +8,12 @@ import {
   hasProfileState,
   hasCoachingState,
 } from "./sessionStore.js";
+import {
+  supabase,
+  getCurrentUser,
+  signOut,
+  saveConsent,
+} from "./supabaseClient.js";
 import { initStatusBar, setStatus } from "./statusBar.js";
 
 const discStatusEl = document.getElementById("discStatus");
@@ -21,6 +27,38 @@ refreshStatuses();
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => handleClear(btn.dataset.clear));
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const user = await getCurrentUser();
+
+  const statusEl = document.querySelector("#privacy-status");
+  const actionEl = document.querySelector("#privacy-action");
+
+  if (statusEl && actionEl) {
+    if (!user) {
+      statusEl.textContent = "Vous utilisez Aurum sans compte.";
+      actionEl.innerHTML = `<a href="/pages/signup.html">Créer un compte</a>`;
+    } else {
+      statusEl.textContent = `Connecté en tant que ${user.email}`;
+      actionEl.innerHTML = `<button id="logout-btn">Se déconnecter</button>`;
+    }
+  }
+
+  const logoutBtn = document.querySelector("#logout-btn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", async () => {
+      await signOut();
+      location.reload();
+    });
+  }
+
+  const consentSwitch = document.querySelector("#consent-switch");
+  if (consentSwitch && user) {
+    consentSwitch.addEventListener("change", async () => {
+      await saveConsent(consentSwitch.checked);
+    });
+  }
 });
 
 function handleClear(scope) {

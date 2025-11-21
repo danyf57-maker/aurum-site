@@ -44,7 +44,15 @@
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z"/></svg>
         Revenir aux questions
       </a>
-      <span id="statusBar" class="text-sm px-4 py-2 rounded-full bg-white border border-black/10 shadow-sm">État : disponible</span>
+      <div class="flex items-center gap-3">
+        <button
+          id="logoutBtn"
+          class="logout-button inline-flex items-center rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary/5"
+        >
+          Déconnexion
+        </button>
+        <span id="statusBar" class="text-sm px-4 py-2 rounded-full bg-white border border-black/10 shadow-sm">État : disponible</span>
+      </div>
     </header>
 
     <section class="flex-1">
@@ -54,6 +62,10 @@
           <h1 class="font-serif text-3xl sm:text-4xl mt-2">Une dynamique se dessine</h1>
           <p class="muted mt-3" id="profileSubtitle">Un angle de vue, pas une étiquette. Vous pouvez y revenir, l’oublier, ou le compléter selon ce qui résonne.</p>
         </div>
+        <div
+          id="authMessage"
+          class="hidden text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 mt-4"
+        ></div>
 
         <div id="profileHighlight" class="rounded-2xl bg-white shadow-soft border border-black/5 p-5 space-y-2">
           <p class="text-sm uppercase tracking-[0.2em] text-mute" id="profileTitle"></p>
@@ -73,6 +85,38 @@
     </section>
   </main>
 
-  <script type="module" src="../js/synthesis.js"></script>
+  <!-- Aurum: bootstrap Supabase + auth magic link -->
+  <script src="/env.local.js"></script>
+  <script type="module" src="/js/supabaseClient.js"></script>
+  <script type="module" src="/js/statusBar.js"></script>
+  <script type="module" src="/js/app-auth-bootstrap.js"></script>
+  <script type="module" src="/js/app-profile.js"></script>
+  <script type="module" src="/js/app-logout.js"></script>
+  <script type="module" src="/js/synthesis.js"></script>
+
+  <footer class="w-full py-8 mt-20 border-t border-gray-200 text-center text-sm text-gray-600">
+    <div class="flex justify-center gap-6 mb-4 flex-wrap">
+      <a href="/pages/dashboard.html" class="underline hover:text-indigo-800">Tableau de bord</a>
+      <a href="/pages/portrait.html" class="underline hover:text-indigo-800">Portrait intérieur</a>
+      <a href="/pages/answers.html" class="underline hover:text-indigo-800">Vos réponses</a>
+      <a href="/pages/timeline.html" class="underline hover:text-indigo-800">Évolution</a>
+      <a href="/pages/legal.html#cgu" class="underline hover:text-indigo-800">CGU</a>
+      <a href="/pages/legal.html#privacy" class="underline hover:text-indigo-800">Confidentialité</a>
+      <a href="/pages/legal.html#mentions-legales" class="underline hover:text-indigo-800">Mentions légales</a>
+    </div>
+    <p>Aurum © 2025 — Tous droits réservés</p>
+  </footer>
+
+  <div id="rgpdBanner" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 flex items-center justify-between text-sm hidden z-50">
+    <span>
+      Aurum utilise le stockage local de votre navigateur pour conserver vos réponses et améliorer votre expérience. 
+      Aucune donnée sensible n’est transmise à nos serveurs.
+    </span>
+    <button id="rgpdAccept" class="ml-4 px-4 py-2 bg-indigo-900 text-white rounded">
+      J’accepte
+    </button>
+  </div>
+
+  <script src="/js/app-consent.js"></script>
 </body>
 </html>

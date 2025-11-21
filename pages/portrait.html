@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aurum — Pistes</title>
+  <title>Aurum — Portrait intérieur</title>
   <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
   <link rel="apple-touch-icon" href="../assets/img/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,9 +40,9 @@
 <body class="font-sans antialiased">
   <main class="min-h-screen flex flex-col">
     <header class="px-5 pt-6 flex items-center justify-between">
-      <a href="./profile.html" class="inline-flex items-center gap-2 text-sm text-primary opacity-80 hover:opacity-100">
+      <a href="./home.html" class="inline-flex items-center gap-2 text-sm text-primary opacity-80 hover:opacity-100">
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z"/></svg>
-        Revenir au portrait
+        Retour à l’accueil
       </a>
       <div class="flex items-center gap-3">
         <button
@@ -56,41 +56,66 @@
     </header>
 
     <section class="flex-1">
-      <div class="max-w-3xl mx-auto px-5 py-10 space-y-6">
-        <div class="text-center">
-          <p class="text-sm uppercase tracking-[0.2em] text-mute">Accompagnement personnel</p>
-          <h1 class="font-serif text-3xl sm:text-4xl mt-2">Pistes d’exploration</h1>
-          <p class="muted mt-3">Des invitations à essayer, sans urgence, sans obligation. Vous pouvez les effleurer ou les laisser de côté.</p>
-        </div>
+      <div class="max-w-4xl mx-auto py-14 px-6 space-y-10">
         <div
           id="authMessage"
-          class="hidden text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 mt-4"
+          class="hidden text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 mb-6"
         ></div>
 
-        <div id="coachingTracks" class="space-y-4">
-          <!-- Advice injected -->
+        <section id="portraitHero" class="mb-10 p-8 rounded-3xl bg-gradient-to-br from-primary/20 to-indigo-200 shadow-md">
+          <h1 class="text-2xl font-bold mb-3" id="portraitSummary">Chargement...</h1>
+          <p class="text-base opacity-80" id="portraitEssences">—</p>
+        </section>
+
+        <section class="grid gap-6 mb-10" id="portraitSignatures">
+          <div class="signature-card p-6 rounded-2xl bg-white shadow" id="sigTraverses">
+            <h2 class="font-semibold mb-2 text-primary">Ce que tu traverses</h2>
+            <p class="opacity-80" id="sigTraversesText">—</p>
+          </div>
+
+          <div class="signature-card p-6 rounded-2xl bg-white shadow" id="sigEmergence">
+            <h2 class="font-semibold mb-2 text-primary">Ce qui cherche à émerger</h2>
+            <p class="opacity-80" id="sigEmergenceText">—</p>
+          </div>
+
+          <div class="signature-card p-6 rounded-2xl bg-white shadow" id="sigRessource">
+            <h2 class="font-semibold mb-2 text-primary">Ta ressource du moment</h2>
+            <p class="opacity-80" id="sigRessourceText">—</p>
+          </div>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="font-semibold text-lg mb-4">Thèmes récurrents</h2>
+          <div class="grid gap-4 md:grid-cols-2" id="portraitThemes"></div>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="font-semibold text-lg mb-4">Extraits de toi</h2>
+          <div id="portraitQuotes" class="space-y-3"></div>
+        </section>
+
+        <section class="mb-12">
+          <h2 class="font-semibold text-lg mb-4">Insights du moment</h2>
+          <ul id="portraitInsights" class="space-y-2 text-sm"></ul>
+        </section>
+
+        <div class="flex flex-col gap-3">
+          <button id="refreshBtn" class="primary-btn w-full px-5 py-3 bg-indigo-900 text-white rounded-xl hover:bg-indigo-800 transition">Actualiser</button>
+          <a href="/pages/dashboard.html" class="secondary-btn w-full text-center px-5 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition">Voir le tableau de bord</a>
+          <a href="/pages/timeline.html" class="secondary-btn w-full text-center px-5 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition">Explorer votre évolution</a>
+          <a href="/pages/dialogue.html" class="secondary-btn w-full text-center px-5 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition">Ajouter une réflexion</a>
         </div>
-
-        <article class="rounded-2xl bg-white shadow-soft border border-black/5 p-5 space-y-3">
-          <h2 class="font-semibold text-lg">Un geste à laisser infuser cette semaine</h2>
-          <p id="weeklyPractice" class="text-sm leading-relaxed"></p>
-        </article>
-
-        <p class="text-center text-xs muted" id="coachingMeta">
-          Vous pouvez revenir quand vous le souhaitez, ignorer ces pistes ou les effacer si elles ne conviennent plus.
-        </p>
       </div>
     </section>
   </main>
 
-  <!-- Aurum: bootstrap Supabase + auth magic link -->
   <script src="/env.local.js"></script>
   <script type="module" src="/js/supabaseClient.js"></script>
   <script type="module" src="/js/statusBar.js"></script>
   <script type="module" src="/js/app-auth-bootstrap.js"></script>
-  <script type="module" src="/js/app-coaching.js"></script>
+  <script type="module" src="/js/app-profile.js"></script>
   <script type="module" src="/js/app-logout.js"></script>
-  <script type="module" src="/js/coaching.js"></script>
+  <script src="/js/app-portrait.js"></script>
 
   <footer class="w-full py-8 mt-20 border-t border-gray-200 text-center text-sm text-gray-600">
     <div class="flex justify-center gap-6 mb-4 flex-wrap">
@@ -107,7 +132,7 @@
 
   <div id="rgpdBanner" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 flex items-center justify-between text-sm hidden z-50">
     <span>
-      Aurum utilise le stockage local de votre navigateur pour conserver vos réponses et améliorer votre expérience. 
+      Aurum utilise le stockage local de votre navigateur pour conserver vos réponses et améliorer votre expérience.
       Aucune donnée sensible n’est transmise à nos serveurs.
     </span>
     <button id="rgpdAccept" class="ml-4 px-4 py-2 bg-indigo-900 text-white rounded">

@@ -313,5 +313,30 @@
     })
     */
   </script>
+
+  <footer class="w-full py-8 mt-20 border-t border-gray-200 text-center text-sm text-gray-600">
+    <div class="flex justify-center gap-6 mb-4 flex-wrap">
+      <a href="/pages/dashboard.html" class="underline hover:text-indigo-800">Tableau de bord</a>
+      <a href="/pages/portrait.html" class="underline hover:text-indigo-800">Portrait intérieur</a>
+      <a href="/pages/answers.html" class="underline hover:text-indigo-800">Vos réponses</a>
+      <a href="/pages/timeline.html" class="underline hover:text-indigo-800">Évolution</a>
+      <a href="/pages/legal.html#cgu" class="underline hover:text-indigo-800">CGU</a>
+      <a href="/pages/legal.html#privacy" class="underline hover:text-indigo-800">Confidentialité</a>
+      <a href="/pages/legal.html#mentions-legales" class="underline hover:text-indigo-800">Mentions légales</a>
+    </div>
+    <p>Aurum © 2025 — Tous droits réservés</p>
+  </footer>
+
+  <div id="rgpdBanner" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 flex items-center justify-between text-sm hidden z-50">
+    <span>
+      Aurum utilise le stockage local de votre navigateur pour conserver vos réponses et améliorer votre expérience. 
+      Aucune donnée sensible n’est transmise à nos serveurs.
+    </span>
+    <button id="rgpdAccept" class="ml-4 px-4 py-2 bg-indigo-900 text-white rounded">
+      J’accepte
+    </button>
+  </div>
+
+  <script src="/js/app-consent.js"></script>
 </body>
 </html>

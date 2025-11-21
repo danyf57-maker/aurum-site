@@ -3,6 +3,9 @@ const LABELS = {
   en_cours: "État : en chemin",
   erreur: "État : à reprendre doucement",
   hors_ligne: "État : hors connexion",
+  connecte: "État : espace personnel activé",
+  mode_local: "État : mode local",
+  incident: "État : incident détecté",
 };
 
 let target = null;

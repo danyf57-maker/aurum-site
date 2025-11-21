@@ -44,7 +44,15 @@
         <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z"/></svg>
         Accueil
       </a>
-      <span id="statusBar" class="text-sm px-4 py-2 rounded-full bg-white border border-black/10 shadow-sm">État : disponible</span>
+      <div class="flex items-center gap-3">
+        <button
+          id="logoutBtn"
+          class="logout-button inline-flex items-center rounded-full border border-black/10 bg-white px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary/5"
+        >
+          Déconnexion
+        </button>
+        <span id="statusBar" class="text-sm px-4 py-2 rounded-full bg-white border border-black/10 shadow-sm">État : disponible</span>
+      </div>
     </header>
 
     <section class="flex-1">
@@ -54,6 +62,10 @@
           <h1 class="font-serif text-3xl sm:text-4xl mt-2">Mes données locales</h1>
           <p class="muted mt-3">Tout est stocké sur ton appareil. Efface en un geste ce que tu souhaites.</p>
         </div>
+        <div
+          id="authMessage"
+          class="hidden text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 mt-4"
+        ></div>
 
         <div class="grid gap-4">
           <article class="rounded-2xl bg-white shadow-soft border border-black/5 p-5 flex items-center justify-between">
@@ -89,11 +101,68 @@
           </article>
         </div>
 
+        <section class="space-y-6 text-left text-sm leading-relaxed text-slate-700">
+          <div class="rounded-2xl bg-white shadow-soft border border-black/5 p-5 space-y-3">
+            <h2 class="text-lg font-semibold text-slate-900">Protection des mineurs</h2>
+            <p>
+              Aurum n’est pas destiné aux personnes âgées de moins de 15 ans. Conformément à l’article 8 du Règlement Général sur la Protection des Données (RGPD) et à la législation française, l’utilisation du service nécessite d’être âgé de 15 ans ou plus.
+            </p>
+            <p>
+              Lors de la connexion, l’utilisateur est invité à confirmer qu’il a 15 ans ou plus. Aucune preuve d’identité ou donnée relative à l’âge n’est collectée ou stockée. Si un utilisateur indique avoir moins de 15 ans, l’accès au service est refusé.
+            </p>
+            <p>
+              Si, malgré nos mesures, nous prenons connaissance qu’un mineur de moins de 15 ans a utilisé le service, nous supprimerons immédiatement l’accès et toutes les données associées.
+            </p>
+          </div>
+
+          <div class="rounded-2xl bg-white shadow-soft border border-black/5 p-5 space-y-3">
+            <h2 class="text-lg font-semibold text-slate-900">Données sensibles</h2>
+            <p>
+              Aurum ne collecte ni ne traite aucune donnée relevant des catégories particulières définies par l’article 9 du RGPD, notamment les données de santé, les opinions politiques ou religieuses, l’orientation sexuelle, l’origine raciale ou ethnique, les données biométriques, la date de naissance, le sexe ou l’identité de genre.
+            </p>
+            <p>
+              Les réponses introspectives de l’utilisateur sont stockées localement sur son appareil et ne sont jamais transmises à nos serveurs sans action volontaire de sa part.
+            </p>
+          </div>
+        </section>
+
         <div id="privacyMessage" class="text-center text-sm text-primary"></div>
       </div>
     </section>
   </main>
 
-  <script type="module" src="../js/privacyPanel.js"></script>
+  <!-- Aurum: bootstrap Supabase + auth magic link -->
+  <script src="/env.local.js"></script>
+  <script type="module" src="/js/supabaseClient.js"></script>
+  <script type="module" src="/js/statusBar.js"></script>
+  <script type="module" src="/js/app-auth-bootstrap.js"></script>
+  <script type="module" src="/js/app-privacy.js"></script>
+  <script type="module" src="/js/app-logout.js"></script>
+  <script type="module" src="/js/privacyPanel.js"></script>
+
+  <footer class="w-full py-8 mt-20 border-t border-gray-200 text-center text-sm text-gray-600">
+    <div class="flex justify-center gap-6 mb-4 flex-wrap">
+      <a href="/pages/dashboard.html" class="underline hover:text-indigo-800">Tableau de bord</a>
+      <a href="/pages/portrait.html" class="underline hover:text-indigo-800">Portrait intérieur</a>
+      <a href="/pages/answers.html" class="underline hover:text-indigo-800">Vos réponses</a>
+      <a href="/pages/timeline.html" class="underline hover:text-indigo-800">Évolution</a>
+      <a href="/pages/legal.html#cgu" class="underline hover:text-indigo-800">CGU</a>
+      <a href="/pages/legal.html#privacy" class="underline hover:text-indigo-800">Confidentialité</a>
+      <a href="/pages/legal.html#mentions-legales" class="underline hover:text-indigo-800">Mentions légales</a>
+    </div>
+    <p>Aurum © 2025 — Tous droits réservés</p>
+  </footer>
+
+  <div id="rgpdBanner" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 flex items-center justify-between text-sm hidden z-50">
+    <span>
+      Aurum utilise le stockage local de votre navigateur pour conserver vos réponses et améliorer votre expérience. 
+      Aucune donnée sensible n’est transmise à nos serveurs.
+    </span>
+    <button id="rgpdAccept" class="ml-4 px-4 py-2 bg-indigo-900 text-white rounded">
+      J’accepte
+    </button>
+  </div>
+
+  <script src="/js/app-consent.js"></script>
 </body>
 </html>

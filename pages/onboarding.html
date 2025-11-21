@@ -52,6 +52,10 @@
           <p class="text-sm uppercase tracking-[0.2em] text-mute">Aurum</p>
           <h1 class="font-serif text-3xl sm:text-4xl mt-2">Prendre un instant avant de commencer</h1>
           <p class="muted mt-3">Trois respirations simples pour poser ton intention. Rien n'est partagé. Tout est local.</p>
+          <div
+            id="authMessage"
+            class="hidden mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900"
+          ></div>
         </div>
 
         <div class="bg-white rounded-2xl shadow-soft px-6 py-8 space-y-8">
@@ -100,6 +104,36 @@
     </footer>
   </main>
 
-  <script type="module" src="../js/app-onboarding.js"></script>
+  <!-- Aurum: bootstrap Supabase + auth magic link -->
+  <script src="/env.local.js"></script>
+  <script type="module" src="/js/supabaseClient.js"></script>
+  <script type="module" src="/js/statusBar.js"></script>
+  <script type="module" src="/js/app-auth-bootstrap.js"></script>
+  <script type="module" src="/js/app-onboarding.js"></script>
+
+  <footer class="w-full py-8 mt-20 border-t border-gray-200 text-center text-sm text-gray-600">
+    <div class="flex justify-center gap-6 mb-4 flex-wrap">
+      <a href="/pages/dashboard.html" class="underline hover:text-indigo-800">Tableau de bord</a>
+      <a href="/pages/portrait.html" class="underline hover:text-indigo-800">Portrait intérieur</a>
+      <a href="/pages/answers.html" class="underline hover:text-indigo-800">Vos réponses</a>
+      <a href="/pages/timeline.html" class="underline hover:text-indigo-800">Évolution</a>
+      <a href="/pages/legal.html#cgu" class="underline hover:text-indigo-800">CGU</a>
+      <a href="/pages/legal.html#privacy" class="underline hover:text-indigo-800">Confidentialité</a>
+      <a href="/pages/legal.html#mentions-legales" class="underline hover:text-indigo-800">Mentions légales</a>
+    </div>
+    <p>Aurum © 2025 — Tous droits réservés</p>
+  </footer>
+
+  <div id="rgpdBanner" class="fixed bottom-0 left-0 right-0 bg-white shadow-lg p-4 flex items-center justify-between text-sm hidden z-50">
+    <span>
+      Aurum utilise le stockage local de votre navigateur pour conserver vos réponses et améliorer votre expérience. 
+      Aucune donnée sensible n’est transmise à nos serveurs.
+    </span>
+    <button id="rgpdAccept" class="ml-4 px-4 py-2 bg-indigo-900 text-white rounded">
+      J’accepte
+    </button>
+  </div>
+
+  <script src="/js/app-consent.js"></script>
 </body>
 </html>

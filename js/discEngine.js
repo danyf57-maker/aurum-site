@@ -23,6 +23,33 @@ const freeTextPromptEl = freeTextContainer
 const freeTextInput = document.getElementById("freeTextInput");
 const freeTextSaveBtn = document.getElementById("freeTextSave");
 const resetBtn = document.getElementById("resetBtn");
+let authMessageEl = document.getElementById("authMessage");
+
+function ensureAuthMessage() {
+  if (authMessageEl) return authMessageEl;
+  authMessageEl = document.createElement("div");
+  authMessageEl.id = "authMessage";
+  authMessageEl.className =
+    "hidden text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 mb-4";
+  if (freeTextContainer?.parentNode) {
+    freeTextContainer.parentNode.insertBefore(
+      authMessageEl,
+      freeTextContainer,
+    );
+  }
+  return authMessageEl;
+}
+
+function showAuthMessage(message) {
+  const el = ensureAuthMessage();
+  el.textContent = message;
+  el.classList.remove("hidden");
+}
+
+function hideAuthMessage() {
+  if (!authMessageEl) return;
+  authMessageEl.classList.add("hidden");
+}
 
 initStatusBar("#statusBar");
 
@@ -30,6 +57,45 @@ let questions = [];
 let freeTextConfig = null;
 let discState = loadDiscState();
 let currentIndex = 0;
+
+function loadAurumAnswers() {
+  try {
+    const raw = localStorage.getItem("aurum_answers");
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    console.warn("[Aurum] aurum_answers illisible, réinitialisation.", error);
+    return [];
+  }
+}
+
+function saveAurumAnswers(entries) {
+  try {
+    localStorage.setItem("aurum_answers", JSON.stringify(entries));
+  } catch (error) {
+    console.warn("[Aurum] Impossible d’enregistrer aurum_answers :", error);
+  }
+}
+
+function syncAurumAnswers(question, option) {
+  const stored = loadAurumAnswers();
+  const payload = {
+    questionId: question.id,
+    type: "choice",
+    text: question.prompt,
+    answer: option.label,
+    timestamp: Date.now(),
+  };
+  const idx = stored.findIndex(
+    (item) => item.questionId === question.id && item.type === "choice",
+  );
+  if (idx >= 0) {
+    stored[idx] = payload;
+  } else {
+    stored.push(payload);
+  }
+  saveAurumAnswers(stored);
+}
 
 async function bootstrap() {
   try {
@@ -102,6 +168,7 @@ function handleAnswer(question, option) {
     weights: option.weights,
     savedAt: new Date().toISOString(),
   });
+  syncAurumAnswers(question, option);
   discState = loadDiscState();
   currentIndex = computeCurrentIndex();
   updateAnswersCount();
@@ -134,12 +201,48 @@ function hydrateFreeText() {
   freeTextInput.value = discState.freeText;
 }
 
-freeTextSaveBtn?.addEventListener("click", () => {
+document.addEventListener("click", (e) => {
+  console.log("[discEngine] click reçu", e.target);
+  if (!freeTextInput) {
+    console.warn("[discEngine] freeTextInput introuvable dans le DOM");
+    return;
+  }
+  const btn = e.target.closest("#freeTextSave");
+  console.log("[discEngine] bouton détecté ?", Boolean(btn));
+  if (!btn) return;
+
+  const textValue = freeTextInput.value.trim();
+  console.log("[discEngine] contenu saisi :", textValue);
+  if (!textValue) {
+    showAuthMessage("Ajoute quelques mots avant d’enregistrer.");
+    return;
+  }
+
+  hideAuthMessage();
   setStatus("en_cours");
-  setDiscFreeText(freeTextInput.value.trim());
+  console.log("[discEngine] sauvegarde DISC en cours");
+  setDiscFreeText(textValue);
   saveDiscState({ completedAt: new Date().toISOString() });
   discState = loadDiscState();
+
+  try {
+    const stored = loadAurumAnswers();
+    stored.push({
+      type: "free_text",
+      questionId: "free_text",
+      text: "phrase_libre",
+      answer: textValue,
+      timestamp: Date.now(),
+    });
+    saveAurumAnswers(stored);
+    console.log("[discEngine] réponse libre ajoutée à aurum_answers");
+  } catch (error) {
+    console.warn("[Aurum] Impossible d’enregistrer la réponse libre :", error);
+  }
+
   setStatus("pret");
+  console.log("[discEngine] redirection imminente vers /pages/home.html");
+  window.location.href = "/pages/home.html";
 });
 
 resetBtn?.addEventListener("click", () => {

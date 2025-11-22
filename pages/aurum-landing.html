@@ -1,323 +1,460 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Aurum – Le journal qui te répond</title>
+  <meta charset="utf-8" />
+  <title>Aurum – Le journal qui te répond avec douceur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Aurum lit ton journal intime et te renvoie chaque jour un message clair et une petite action pour avancer, sans jugement." />
+  <meta
+    name="description"
+    content="Aurum est un journal intimiste qui te répond avec douceur. Tu écris quelques mots, Aurum t’envoie un message chaleureux pour éclairer ta journée."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="/assets/favicon.svg" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            aurumBg: "#F5F1E8",
+            aurumGold: "#B48A3A",
+            aurumDeep: "#3A3A3A",
+            aurumMid: "#6B6B6B",
+            aurumLight: "#E8E6E3",
+          },
+          boxShadow: {
+            soft: "0 18px 40px rgba(58,58,58,0.08)",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: "Montserrat", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-[#f8f3ea] text-slate-900 antialiased">
-  <!-- NAVBAR -->
-  <header class="border-b border-amber-100/60 bg-white/70 backdrop-blur sticky top-0 z-30">
-    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2">
-        <div class="h-7 w-7 rounded-full bg-gradient-to-br from-amber-300 via-amber-400 to-amber-600 shadow-md"></div>
-        <span class="font-semibold tracking-tight text-slate-900">Aurum</span>
-      </a>
-      <nav class="hidden sm:flex items-center gap-6 text-sm">
-        <a href="#how-it-works" class="hover:text-amber-700">Comment ça marche</a>
-        <a href="#for-who" class="hover:text-amber-700">Pour qui ?</a>
-        <a href="#pricing" class="hover:text-amber-700">Tarifs</a>
-        <a href="#faq" class="hover:text-amber-700">Questions</a>
-      </nav>
-      <a href="/pages/signup.html" class="hidden sm:inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-slate-900 text-amber-50 hover:bg-slate-800 transition">
-        Créer mon espace
-      </a>
-    </div>
-  </header>
 
-  <!-- HERO -->
-  <main class="pb-16">
-    <section class="bg-gradient-to-b from-[#f8f3ea] to-[#f3e8d7]">
-      <div class="max-w-5xl mx-auto px-4 pt-10 pb-16 grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <p class="text-xs font-semibold tracking-[0.2em] text-amber-700 uppercase mb-3">
-            PRENDRE SOIN DE TON MONDE INTÉRIEUR
-          </p>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-4">
-            Le journal qui te répond<br class="hidden sm:block" /> chaque jour.
-          </h1>
-          <p class="text-base sm:text-lg text-slate-700 mb-6">
-            Tu écris quelques lignes sur ta journée. Aurum relit calmement ce que tu as vécu
-            et te renvoie un message clair&nbsp;: ce qui se joue pour toi, plus une petite
-            action simple pour avancer. Sans jugement. À ton rythme.
-          </p>
-          <ul class="text-sm text-slate-700 mb-6 space-y-2">
-            <li>• Quelques minutes d’écriture, pas de longues séances compliquées.</li>
-            <li>• Une réponse écrite, douce et directe, pour y voir plus clair.</li>
-            <li>• Une micro-action concrète pour faire un pas de plus chaque jour.</li>
-            <li>• Espace privé, protégé, rien à “performer” pour personne.</li>
-          </ul>
-          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <a href="/pages/signup.html#cta" class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-900 text-amber-50 shadow-md shadow-slate-900/10 hover:bg-slate-800 transition">
-              Commencer gratuitement
-            </a>
-            <p class="text-xs text-slate-600">
-              Version complète à <span class="font-semibold text-slate-900">13 €/mois</span>.<br class="sm:hidden" />
-              Sans engagement, tu peux arrêter à tout moment.
-            </p>
+<body class="bg-aurumBg text-aurumDeep antialiased">
+  <div class="min-h-screen flex flex-col">
+    <!-- NAVBAR -->
+    <header class="border-b border-aurumLight bg-white/80 backdrop-blur sticky top-0 z-30">
+      <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/pages/aurum-landing.html" class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-aurumGold/15 flex items-center justify-center shadow-md shadow-aurumGold/20">
+            <span class="text-aurumGold font-semibold tracking-wide">A</span>
           </div>
+          <span class="font-semibold tracking-tight">Aurum</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-aurumMid">
+          <a href="#how-it-works" class="hover:text-aurumGold transition-colors">Comment ça marche</a>
+          <a href="#for-who" class="hover:text-aurumGold transition-colors">Pour qui&nbsp;?</a>
+          <a href="#pricing" class="hover:text-aurumGold transition-colors">Tarifs</a>
+          <a href="#safety" class="hover:text-aurumGold transition-colors">Sécurité</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a
+            href="/pages/login.html"
+            class="hidden sm:inline text-sm text-aurumMid hover:text-aurumGold transition-colors"
+          >
+            Se connecter
+          </a>
+          <a
+            href="/pages/signup.html"
+            class="inline-flex items-center text-sm bg-aurumGold text-white px-4 py-2 rounded-full font-semibold shadow-sm hover:bg-aurumGold/90 transition-colors"
+          >
+            Commencer gratuitement
+          </a>
         </div>
+      </div>
+    </header>
 
-        <!-- MOCKUP -->
-        <div class="relative">
-          <div class="absolute -top-6 -left-4 h-24 w-24 rounded-full bg-amber-200/60 blur-2xl"></div>
-          <div class="absolute -bottom-10 -right-4 h-28 w-28 rounded-full bg-amber-400/40 blur-3xl"></div>
+    <!-- HERO -->
+    <main class="flex-1">
+      <section class="bg-aurumBg">
+        <div class="max-w-5xl mx-auto px-4 py-12 md:py-20 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+          <div>
+            <p class="uppercase tracking-[0.2em] text-xs text-aurumMid mb-3">
+              journal · douceur · quotidien
+            </p>
+            <h1 class="text-4xl md:text-5xl font-bold text-aurumGold leading-tight">
+              Le journal<br class="hidden sm:inline" />qui te répond avec douceur.
+            </h1>
+            <p class="text-lg text-aurumDeep mt-5 leading-relaxed">
+              Tu écris quelques mots sur ta journée, tes émotions, tes questions.
+              Aurum te renvoie un message chaleureux, simple à accueillir,
+              pour t’aider à y voir un peu plus clair et te sentir moins seul·e.
+            </p>
+            <p class="mt-4 text-aurumMid text-sm">
+              Sans jugement. Sans pression. Juste un espace tendre pour déposer ce qui vit en toi.
+            </p>
 
-          <div class="relative mx-auto max-w-xs rounded-3xl border border-amber-100 bg-white shadow-xl shadow-amber-900/5 overflow-hidden">
-            <div class="px-4 pt-4 pb-2 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <div class="h-8 w-8 rounded-full bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 flex items-center justify-center text-xs font-bold text-white">
-                  A
-                </div>
-                <div>
-                  <p class="text-xs font-medium text-slate-900">Lecture d’Aurum</p>
-                  <p class="text-[10px] text-slate-500">Aujourd’hui</p>
-                </div>
+            <div class="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <a
+                href="/pages/signup.html"
+                class="inline-flex justify-center items-center bg-aurumGold text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-aurumGold/90 transition-colors"
+              >
+                Commencer gratuitement
+              </a>
+              <div class="text-xs text-aurumMid">
+                <p>Essai sans carte bancaire.</p>
+                <p>Version complète ensuite&nbsp;: <span class="font-semibold text-aurumDeep">Aurum+ – 13&nbsp;€/mois</span>.</p>
               </div>
             </div>
-            <div class="px-4 pb-4 space-y-3">
-              <div class="rounded-2xl bg-slate-50 border border-amber-100 p-3 text-[11px] text-slate-700 leading-snug">
-                <p class="font-semibold text-[11px] tracking-[0.16em] text-amber-700 uppercase mb-1">
-                  CE QUE JE RESSENS CHEZ TOI
-                </p>
-                <p>
-                  Tu traverses une période charnière&nbsp;: tu veux avancer, mais tu portes encore
-                  beaucoup sur les épaules. Tu fais pourtant preuve de courage, tu continues d’essayer
-                  et de chercher ce qui est juste pour toi.
-                </p>
+          </div>
+
+          <!-- Mockup simple -->
+          <div class="md:pl-6">
+            <div class="mx-auto w-full max-w-xs bg-white rounded-3xl shadow-xl border border-aurumLight p-4 relative">
+              <div class="h-4 flex justify-center mb-4">
+                <span class="w-16 h-1.5 bg-aurumLight rounded-full"></span>
               </div>
-              <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3 text-[11px] text-amber-900 leading-snug">
-                <p class="font-semibold text-[11px] tracking-[0.18em] text-amber-800 uppercase mb-1">
-                  PETITE ACTION POUR CE SOIR
-                </p>
-                <p>
-                  Prends 5 minutes pour écrire une seule phrase&nbsp;: “En ce moment, ce qui compte
-                  le plus pour moi, c’est…”. Ne cherche pas la perfection, écris juste ce qui vient.
-                </p>
+              <div class="space-y-4">
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-aurumMid mb-1">Aujourd’hui</p>
+                  <div class="bg-aurumBg rounded-2xl p-3 text-sm text-aurumDeep">
+                    <p>
+                      “Je me sens fatigué·e et un peu perdu·e. J’ai l’impression de tourner en rond même
+                      si j’essaie de faire de mon mieux.”
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <p class="text-xs uppercase tracking-wide text-aurumMid mb-1">Réponse d’Aurum</p>
+                  <div class="bg-white border border-aurumGold/30 rounded-2xl p-3 text-sm text-aurumDeep shadow-sm">
+                    <p class="mb-1 font-medium text-aurumGold">“Merci d’avoir posé ces mots.”</p>
+                    <p>
+                      Ce que tu ressens est légitime. Tu fais déjà beaucoup en prenant ce moment pour toi.
+                      Aujourd’hui, essaie simplement de remarquer un petit signe que tu avances, même si
+                      c’est discret. Tu n’es pas en arrière, tu es en chemin.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p class="text-[10px] text-center text-slate-400">
-                Exemple d’un message généré à partir d’un journal anonyme.
+              <div class="mt-4 flex justify-between items-center text-[11px] text-aurumMid">
+                <span>Aurum · ton espace intérieur</span>
+                <span>100&nbsp;% privé</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- POURQUOI AURUM -->
+      <section class="py-14 md:py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center mb-8">
+            Pourquoi Aurum&nbsp;?
+          </h2>
+
+          <div class="grid md:grid-cols-3 gap-8 text-sm md:text-base text-aurumDeep">
+            <div class="bg-aurumBg rounded-2xl p-4 border border-aurumLight shadow-soft">
+              <h3 class="font-semibold text-aurumGold mb-2">Un endroit pour déposer</h3>
+              <p class="text-aurumMid">
+                Quand tout va vite, on ne sait plus toujours ce qu’on ressent vraiment.
+                Aurum est un espace calme où tu peux poser tes mots, sans filtre.
+              </p>
+            </div>
+            <div class="bg-aurumBg rounded-2xl p-4 border border-aurumLight shadow-soft">
+              <h3 class="font-semibold text-aurumGold mb-2">Un regard tendre sur ce que tu vis</h3>
+              <p class="text-aurumMid">
+                À chaque fois que tu écris, Aurum te renvoie un message doux, comme
+                une présence qui te dit&nbsp;: “Ce que tu vis a de la valeur.”
+              </p>
+            </div>
+            <div class="bg-aurumBg rounded-2xl p-4 border border-aurumLight shadow-soft">
+              <h3 class="font-semibold text-aurumGold mb-2">Un soutien léger, au quotidien</h3>
+              <p class="text-aurumMid">
+                Pas de grands discours ni d’injonctions. Juste des phrases simples,
+                pour te sentir un peu plus apaisé·e et accompagné·e dans tes journées.
               </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- COMMENT ÇA MARCHE -->
-    <section id="how-it-works" class="max-w-5xl mx-auto px-4 py-14">
-      <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 mb-2">
-        Comment ça marche, concrètement ?
-      </h2>
-      <p class="text-sm text-slate-600 mb-8">
-        Aurum a été pensé pour les personnes qui ont beaucoup de choses en tête mais peu de temps
-        et peu d’espace pour déposer tout ça.
-      </p>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white/80 border border-amber-100 rounded-2xl p-5">
-          <p class="text-xs font-semibold text-amber-700 tracking-[0.18em] uppercase mb-2">ÉTAPE 1</p>
-          <h3 class="font-semibold text-slate-900 mb-2 text-sm">Tu écris en quelques phrases</h3>
-          <p class="text-sm text-slate-700">
-            Le soir ou quand tu veux, tu racontes ta journée, tes pensées, tes questions.
-            Pas besoin d’écrire bien, ni beaucoup. Juste ce qui est vrai pour toi.
-          </p>
-        </div>
-        <div class="bg-white/80 border border-amber-100 rounded-2xl p-5">
-          <p class="text-xs font-semibold text-amber-700 tracking-[0.18em] uppercase mb-2">ÉTAPE 2</p>
-          <h3 class="font-semibold text-slate-900 mb-2 text-sm">
-            Aurum relit et met des mots clairs
-          </h3>
-          <p class="text-sm text-slate-700">
-            Aurum relit ce que tu as écrit, repère les grandes lignes et te renvoie une lecture
-            simple&nbsp;: ce qui semble important dans ce que tu traverses en ce moment.
-          </p>
-        </div>
-        <div class="bg-white/80 border border-amber-100 rounded-2xl p-5">
-          <p class="text-xs font-semibold text-amber-700 tracking-[0.18em] uppercase mb-2">ÉTAPE 3</p>
-          <h3 class="font-semibold text-slate-900 mb-2 text-sm">Une micro-action pour avancer</h3>
-          <p class="text-sm text-slate-700">
-            Tu reçois une petite action possible dès aujourd’hui&nbsp;: un geste, une phrase, une
-            question à te poser. Quelque chose de faisable, pas une injonction impossible.
-          </p>
-        </div>
-      </div>
-    </section>
+      <!-- COMMENT ÇA MARCHE -->
+      <section id="how-it-works" class="py-16 bg-aurumBg">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center mb-10">
+            Comment ça marche
+          </h2>
 
-    <!-- POUR QUI -->
-    <section id="for-who" class="bg-white/70 border-y border-amber-100">
-      <div class="max-w-5xl mx-auto px-4 py-14">
-        <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 mb-3">
-          Pour qui est Aurum ?
-        </h2>
-        <p class="text-sm text-slate-600 mb-6">
-          Aurum s’adresse aux personnes qui ressentent beaucoup de choses, réfléchissent beaucoup,
-          mais ont du mal à se poser pour mettre de l’ordre.
-        </p>
-        <div class="grid md:grid-cols-3 gap-6 text-sm">
-          <div class="bg-slate-50 border border-amber-100 rounded-2xl p-5">
-            <h3 class="font-semibold text-slate-900 mb-2">Les hypersensibles & les “trop plein”</h3>
-            <p class="text-slate-700">
-              Tu absorbes tout, tu cogites beaucoup, tu te demandes si tu n’en fais “pas trop”.
-              Aurum t’aide à déposer, à trier, à respirer.
-            </p>
+          <div class="space-y-8 text-aurumMid leading-relaxed max-w-3xl mx-auto">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-aurumGold text-white flex items-center justify-center text-sm font-semibold">
+                1
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-aurumGold mb-1">Tu écris quelques lignes</h3>
+                <p>
+                  Une émotion, une question, une journée difficile ou un petit moment de joie.
+                  Même trois phrases suffisent. Tu n’as pas besoin de “bien écrire”.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-aurumGold text-white flex items-center justify-center text-sm font-semibold">
+                2
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-aurumGold mb-1">Aurum te répond avec douceur</h3>
+                <p>
+                  Après ton message, tu reçois une réponse chaleureuse&nbsp;: quelques phrases pour reconnaître
+                  ce que tu traverses, t’encourager, et t’apporter un peu de clarté.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-aurumGold text-white flex items-center justify-center text-sm font-semibold">
+                3
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-aurumGold mb-1">Tu avances à ton rythme</h3>
+                <p>
+                  Tu écris quand tu veux, une fois par semaine ou plusieurs fois par jour.
+                  Aurum ne te juge pas, ne te presse pas. C’est un compagnon discret,
+                  là quand tu as besoin de poser ce que tu ressens.
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="bg-slate-50 border border-amber-100 rounded-2xl p-5">
-            <h3 class="font-semibold text-slate-900 mb-2">Les personnes en transition</h3>
-            <p class="text-slate-700">
-              Changement de travail, de ville, de couple, de projet… Aurum te permet de suivre
-              ce qui se transforme en toi au fil des jours.
-            </p>
-          </div>
-          <div class="bg-slate-50 border border-amber-100 rounded-2xl p-5">
-            <h3 class="font-semibold text-slate-900 mb-2">Ceux qui n’osent pas encore consulter</h3>
-            <p class="text-slate-700">
-              Tu n’es pas prêt à prendre rendez-vous, ou tu es sur liste d’attente. Aurum te donne
-              déjà un lieu pour commencer à t’écouter.
+        </div>
+      </section>
+
+      <!-- EXEMPLE DE MESSAGE -->
+      <section id="example" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center mb-10">
+            À quoi ressemble un message d’Aurum&nbsp;?
+          </h2>
+
+          <div class="max-w-xl mx-auto bg-white shadow-soft rounded-2xl p-6 border border-aurumLight text-aurumDeep">
+            <p class="text-sm uppercase tracking-wide text-aurumMid mb-3">Exemple</p>
+            <p class="italic leading-relaxed">
+              “Merci d’avoir pris ce moment pour toi.<br />
+              Ce que tu ressens est important.  
+              Tu n’as pas besoin d’être “au top” pour mériter du repos et de la douceur.  
+              Aujourd’hui, essaie simplement de te parler comme à quelqu’un que tu aimes bien.”
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- PRICING -->
-    <section id="pricing" class="max-w-5xl mx-auto px-4 py-14">
-      <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 mb-3">
-        Tu peux commencer gratuitement, puis passer en Aurum+
-      </h2>
-      <p class="text-sm text-slate-600 mb-8">
-        L’idée n’est pas de t’enfermer dans un abonnement, mais de t’offrir un compagnon régulier
-        tant que tu en as besoin.
-      </p>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white border border-amber-100 rounded-2xl p-5 flex flex-col">
-          <h3 class="font-semibold text-slate-900 mb-1">Aurum – Gratuit</h3>
-          <p class="text-sm text-slate-600 mb-4">Pour découvrir tranquillement.</p>
-          <ul class="text-sm text-slate-700 space-y-2 mb-6">
-            <li>• Écriture de ton journal, à ton rythme</li>
-            <li>• Quelques réponses par mois pour te faire une idée</li>
-            <li>• Sauvegarde de tes textes dans ton espace privé</li>
-          </ul>
-          <p class="mt-auto text-xs text-slate-500">
-            Idéal pour tester la façon dont Aurum te parle, sans carte bancaire.
-          </p>
+      <!-- POUR QUI -->
+      <section id="for-who" class="py-16 bg-aurumBg">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center mb-10">
+            Aurum est fait pour toi si…
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-8 text-aurumMid text-sm md:text-base">
+            <div class="bg-white rounded-2xl border border-aurumLight p-5 shadow-soft space-y-3">
+              <p>• Tu te sens souvent un peu submergé·e par tes émotions.</p>
+              <p>• Tu as du mal à expliquer aux autres ce que tu vis à l’intérieur.</p>
+              <p>• Tu aimerais un endroit où poser tes pensées sans être jugé·e.</p>
+              <p>• Tu aimes l’idée d’un journal, mais tu ne sais jamais quoi écrire.</p>
+            </div>
+            <div class="bg-white rounded-2xl border border-aurumLight p-5 shadow-soft space-y-3">
+              <p>• Tu traverses une transition (études, travail, rupture, changement de vie).</p>
+              <p>• Tu as envie de mieux te comprendre, doucement, sans pression.</p>
+              <p>• Tu cherches une petite présence bienveillante dans ton quotidien.</p>
+            </div>
+          </div>
         </div>
-        <div class="bg-slate-900 text-amber-50 rounded-2xl p-5 border border-amber-300 shadow-lg shadow-amber-900/20 flex flex-col">
-          <div class="flex items-baseline justify-between mb-2">
-            <h3 class="font-semibold text-base">Aurum+ – Accompagnement quotidien</h3>
-            <span class="text-[11px] px-2 py-0.5 rounded-full bg-amber-300 text-slate-900 font-semibold">
-              Recommandé
-            </span>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center mb-10">
+            Tarifs simples et transparents
+          </h2>
+
+          <div class="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
+            <!-- Gratuit -->
+            <div class="border border-aurumLight rounded-xl p-6 bg-white shadow-soft flex flex-col">
+              <h3 class="text-xl font-bold mb-2">Aurum</h3>
+              <p class="text-sm text-aurumMid mb-4">Gratuit</p>
+              <ul class="text-aurumMid space-y-2 text-sm flex-1">
+                <li>• Écriture illimitée</li>
+                <li>• Espace intime et privé</li>
+                <li>• Tu gardes ton journal pour toi</li>
+                <li>• Tu découvres l’univers d’Aurum à ton rythme</li>
+              </ul>
+              <div class="mt-4">
+                <a
+                  href="/pages/signup.html"
+                  class="block text-center border border-aurumLight text-aurumDeep py-2.5 rounded-full text-sm font-semibold hover:border-aurumGold hover:text-aurumGold transition-colors"
+                >
+                  Commencer gratuitement
+                </a>
+              </div>
+            </div>
+
+            <!-- Premium -->
+            <div class="border-2 border-aurumGold rounded-xl p-6 bg-white shadow-md flex flex-col relative overflow-hidden">
+              <div class="absolute top-3 right-3 text-[11px] uppercase tracking-wide bg-aurumGold text-white px-2 py-1 rounded-full">
+                Aurum+
+              </div>
+              <h3 class="text-xl font-bold mb-1 text-aurumGold">Aurum+ — 13&nbsp;€/mois</h3>
+              <p class="text-sm text-aurumMid mb-4">
+                Pour celles et ceux qui veulent être accompagnés au quotidien.
+              </p>
+              <ul class="text-aurumMid space-y-2 text-sm flex-1">
+                <li>• Un message doux après chaque écriture</li>
+                <li>• Possibilité de recevoir un email de soutien chaque jour</li>
+                <li>• Journal enrichi et mieux organisé</li>
+                <li>• Accès prioritaire aux futures fonctionnalités</li>
+              </ul>
+              <div class="mt-4">
+                <a
+                  href="/pages/signup.html"
+                  class="block text-center bg-aurumGold text-white py-2.5 rounded-full text-sm font-semibold shadow-sm hover:bg-aurumGold/90 transition-colors"
+                >
+                  Activer Aurum+
+                </a>
+                <p class="mt-2 text-[11px] text-aurumMid text-center">
+                  Tu peux arrêter quand tu veux. Aucune justification demandée.
+                </p>
+              </div>
+            </div>
           </div>
-          <p class="text-sm text-amber-100 mb-4">
-            Pour celles et ceux qui veulent un rendez-vous régulier avec eux-mêmes.
+        </div>
+      </section>
+
+      <!-- SÉCURITÉ & CONFIDENTIALITÉ -->
+      <section id="safety" class="py-16 bg-aurumBg">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center mb-8">
+            Sécurité & limites
+          </h2>
+
+          <div class="grid md:grid-cols-2 gap-8 text-aurumMid text-sm md:text-base">
+            <div class="space-y-3 bg-white rounded-2xl border border-aurumLight p-5 shadow-soft">
+              <h3 class="font-semibold text-aurumGold mb-1">Un espace intime</h3>
+              <p>
+                Tes textes restent à l’intérieur de ton compte.
+                Aurum est conçu comme un cocon numérique&nbsp;: un endroit où tu peux dire ce que tu n’oses
+                pas toujours formuler ailleurs.
+              </p>
+              <p>
+                Nous ne partageons pas tes écrits. Tu peux aussi supprimer ton journal à tout moment.
+              </p>
+            </div>
+            <div class="space-y-3 bg-white rounded-2xl border border-aurumLight p-5 shadow-soft">
+              <h3 class="font-semibold text-aurumGold mb-1">Aurum ne remplace pas une aide humaine</h3>
+              <p>
+                Aurum ne pose pas de diagnostic, ne donne pas d’avis médical et ne remplace pas un psychologue
+                ou un médecin.
+              </p>
+              <p>
+                Si tu traverses une situation de crise, de danger pour toi ou pour quelqu’un d’autre,
+                il est important de te tourner vers un professionnel ou les numéros d’urgence de ton pays.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center mb-8">
+            Questions fréquentes
+          </h2>
+
+          <div class="space-y-6 text-aurumDeep text-sm md:text-base">
+            <div>
+              <h3 class="font-semibold text-aurumGold mb-1">
+                Est-ce que je dois écrire tous les jours&nbsp;?
+              </h3>
+              <p class="text-aurumMid">
+                Non. Tu écris quand tu en ressens le besoin. Certains jours, tu auras envie de parler,
+                d’autres non. Aurum sera là dans les deux cas.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-aurumGold mb-1">
+                Est-ce que quelqu’un lit ce que j’écris&nbsp;?
+              </h3>
+              <p class="text-aurumMid">
+                Non, ton espace est personnel. L’objectif d’Aurum est que tu puisses te déposer en toute
+                sincérité, sans te sentir observé·e ou jugé·e.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-aurumGold mb-1">
+                Puis-je arrêter Aurum+ facilement&nbsp;?
+              </h3>
+              <p class="text-aurumMid">
+                Oui. Tu peux arrêter ton abonnement à tout moment. Tu gardes l’accès à ton journal,
+                même sans la version plus accompagnée.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-semibold text-aurumGold mb-1">
+                Aurum peut-il m’aider si je ne vais vraiment pas bien&nbsp;?
+              </h3>
+              <p class="text-aurumMid">
+                Aurum peut t’apporter un peu de douceur, mais ne remplace pas une aide humaine.
+                Si tu te sens en grand danger émotionnel ou physique, l’étape la plus importante
+                reste de contacter un professionnel ou un service d’urgence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section id="cta" class="py-16 bg-aurumBg">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+          <h2 class="text-3xl font-semibold mb-4">
+            Prendre soin de toi peut commencer par quelques mots.
+          </h2>
+          <p class="text-aurumMid mb-6">
+            Tu n’as pas besoin d’avoir tout compris pour commencer.  
+            Tu peux simplement ouvrir Aurum, écrire ce que tu ressens,
+            et laisser une voix douce te répondre.
           </p>
-          <div class="flex items-baseline gap-1 mb-4">
-            <span class="text-3xl font-semibold">13 €</span>
-            <span class="text-sm text-amber-200">/ mois</span>
-          </div>
-          <ul class="text-sm text-amber-50/90 space-y-2 mb-6">
-            <li>• Une réponse d’Aurum tous les jours où tu écris</li>
-            <li>• Une micro-action personnalisée à chaque fois</li>
-            <li>• Accès prioritaire aux nouvelles fonctionnalités</li>
-          </ul>
-          <a href="/pages/signup.html#cta" class="inline-flex items-center justify-center px-4 py-2.5 rounded-full text-sm font-semibold bg-amber-300 text-slate-900 hover:bg-amber-200 transition">
-            Je crée mon compte Aurum+
+          <a
+            href="/pages/signup.html"
+            class="inline-flex items-center justify-center bg-aurumGold text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-aurumGold/90 transition-colors"
+          >
+            Créer mon espace Aurum
           </a>
-          <p class="mt-3 text-[11px] text-amber-200">
-            Tu peux arrêter l’abonnement à tout moment, en un clic depuis ton espace.
+          <p class="mt-3 text-xs text-aurumMid">
+            Essai gratuit. Abonnement Aurum+ ensuite&nbsp;: 13&nbsp;€/mois. Tu peux arrêter quand tu veux.
           </p>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- SÉCURITÉ / ÉTHIQUE -->
-    <section class="bg-white/80 border-y border-amber-100">
-      <div class="max-w-5xl mx-auto px-4 py-14">
-        <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 mb-3">
-          Un espace pour toi, vraiment à toi
-        </h2>
-        <div class="grid md:grid-cols-3 gap-6 text-sm">
-          <div class="bg-slate-50 rounded-2xl p-5 border border-amber-100">
-            <h3 class="font-semibold text-slate-900 mb-2">Confidentialité</h3>
-            <p class="text-slate-700">
-              Tes textes restent dans ton espace. Aucune publicité, aucune revente de données.
-            </p>
-          </div>
-          <div class="bg-slate-50 rounded-2xl p-5 border border-amber-100">
-            <h3 class="font-semibold text-slate-900 mb-2">Pas un thérapeute</h3>
-            <p class="text-slate-700">
-              Aurum ne remplace pas un suivi médical ou psychologique. C’est un compagnon
-              d’écriture, pas un médecin.
-            </p>
-          </div>
-          <div class="bg-slate-50 rounded-2xl p-5 border border-amber-100">
-            <h3 class="font-semibold text-slate-900 mb-2">En cas d’urgence</h3>
-            <p class="text-slate-700">
-              En situation de crise ou de détresse aiguë, il est important de te tourner vers
-              un humain&nbsp;: proches, professionnels, services d’urgence.
-            </p>
-          </div>
+    <!-- FOOTER -->
+    <footer class="border-t border-aurumLight bg-white">
+      <div class="max-w-5xl mx-auto px-4 py-6 text-xs text-aurumMid flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p>© Aurum. Un espace pour ce qui se passe en toi.</p>
+        <div class="flex items-center gap-4">
+          <a href="/pages/legal.html" class="hover:text-aurumGold transition-colors">Mentions légales</a>
+          <a href="/pages/privacy.html" class="hover:text-aurumGold transition-colors">Confidentialité</a>
         </div>
       </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="max-w-5xl mx-auto px-4 py-14">
-      <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 mb-6">
-        Questions fréquentes
-      </h2>
-      <div class="space-y-5 text-sm">
-        <details class="bg-white/80 border border-amber-100 rounded-2xl p-4">
-          <summary class="font-semibold text-slate-900 cursor-pointer">
-            Est-ce que quelqu’un lit vraiment mon journal ?
-          </summary>
-          <p class="mt-2 text-slate-700">
-            Non. Aurum te répond automatiquement à partir de ce que tu écris, et tes textes ne
-            sont pas utilisés pour te “profiler” ou te vendre quoi que ce soit.
-          </p>
-        </details>
-        <details class="bg-white/80 border border-amber-100 rounded-2xl p-4">
-          <summary class="font-semibold text-slate-900 cursor-pointer">
-            Et si je n’écris pas tous les jours ?
-          </summary>
-          <p class="mt-2 text-slate-700">
-            Ce n’est pas un challenge à réussir. Aurum te répond uniquement les jours où tu
-            écris. Tu peux faire des pauses quand tu veux.
-          </p>
-        </details>
-        <details class="bg-white/80 border border-amber-100 rounded-2xl p-4">
-          <summary class="font-semibold text-slate-900 cursor-pointer">
-            Est-ce que je peux arrêter l’abonnement facilement ?
-          </summary>
-          <p class="mt-2 text-slate-700">
-            Oui. Tu peux arrêter Aurum+ à tout moment, directement depuis ton espace, sans
-            justification.
-          </p>
-        </details>
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section id="cta" class="bg-slate-900 text-amber-50">
-      <div class="max-w-5xl mx-auto px-4 py-12 text-center">
-        <h2 class="text-2xl font-semibold tracking-tight mb-3">
-          Offre-toi un endroit où poser ce que tu vis.
-        </h2>
-        <p class="text-sm text-amber-100 mb-6">
-          Ce soir, au lieu de tout garder dans ta tête, tu peux l’écrire et laisser Aurum te
-          répondre. Un pas après l’autre.
-        </p>
-        <a href="/pages/signup.html" class="inline-flex items-center px-6 py-2.5 rounded-full text-sm font-semibold bg-amber-300 text-slate-900 hover:bg-amber-200 transition">
-          Créer mon espace gratuitement
-        </a>
-        <p class="mt-3 text-[11px] text-amber-200">
-          Tu pourras passer à Aurum+ (13 €/mois) uniquement si tu sens que cela t’aide vraiment.
-        </p>
-      </div>
-    </section>
-  </main>
+    </footer>
+  </div>
 </body>
 </html>

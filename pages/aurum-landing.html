@@ -276,6 +276,54 @@
         </div>
       </section>
 
+      <!-- TEMOIGNAGES -->
+      <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 space-y-6">
+          <div class="text-center space-y-3">
+            <p class="text-sm uppercase tracking-[0.2em] text-aurumMid">Témoignages</p>
+            <h2 class="text-3xl font-semibold text-aurumDeep">Ce que disent celles et ceux qui écrivent avec Aurum</h2>
+            <p class="text-aurumMid text-sm">Une voix douce, des petits pas. Voici quelques mots de personnes qui utilisent Aurum au quotidien.</p>
+          </div>
+
+          <div class="relative overflow-hidden">
+            <div class="relative h-full min-h-[220px]">
+              <div class="testimonial-slide transition-all duration-500 ease-out bg-aurumBg border border-aurumLight rounded-3xl shadow-soft p-6 space-y-3">
+                <p class="text-sm text-aurumMid">
+                  “Je pensais ne pas savoir quoi écrire. En réalité, Aurum m’aide à sortir ce qui est coincé et me répond toujours avec douceur. Je me sens accompagnée sans me sentir jugée.”
+                </p>
+                <p class="text-sm font-semibold text-aurumGold">Camille, 28 ans</p>
+              </div>
+              <div class="testimonial-slide transition-all duration-500 ease-out opacity-0 translate-x-full absolute inset-0 bg-aurumBg border border-aurumLight rounded-3xl shadow-soft p-6 space-y-3">
+                <p class="text-sm text-aurumMid">
+                  “Les messages d’Aurum sont courts mais tombent juste. Ça m’aide à respirer quand tout s’accumule. Je l’utilise surtout le soir avant de dormir.”
+                </p>
+                <p class="text-sm font-semibold text-aurumGold">Nadia, 34 ans</p>
+              </div>
+              <div class="testimonial-slide transition-all duration-500 ease-out opacity-0 translate-x-full absolute inset-0 bg-aurumBg border border-aurumLight rounded-3xl shadow-soft p-6 space-y-3">
+                <p class="text-sm text-aurumMid">
+                  “Je ne voulais pas d’un outil compliqué. Quelques phrases, une réponse douce, une petite action faisable… ça suffit pour me recentrer.”
+                </p>
+                <p class="text-sm font-semibold text-aurumGold">Julien, 41 ans</p>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between mt-4">
+              <button id="testimonial-prev" class="w-10 h-10 rounded-full border border-aurumLight text-aurumDeep hover:border-aurumGold hover:text-aurumGold transition">
+                ‹
+              </button>
+              <div class="flex items-center gap-2">
+                <span class="testimonial-dot w-2.5 h-2.5 rounded-full bg-amber-700 transition"></span>
+                <span class="testimonial-dot w-2.5 h-2.5 rounded-full bg-amber-200 transition"></span>
+                <span class="testimonial-dot w-2.5 h-2.5 rounded-full bg-amber-200 transition"></span>
+              </div>
+              <button id="testimonial-next" class="w-10 h-10 rounded-full border border-aurumLight text-aurumDeep hover:border-aurumGold hover:text-aurumGold transition">
+                ›
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- PRICING -->
       <section id="pricing" class="py-16 bg-white">
         <div class="max-w-4xl mx-auto px-4">
@@ -458,3 +506,64 @@
   </div>
 </body>
 </html>
+<script>
+  (function () {
+    const slides = Array.from(document.querySelectorAll('.testimonial-slide'));
+    const dots = Array.from(document.querySelectorAll('.testimonial-dot'));
+    const prevBtn = document.getElementById('testimonial-prev');
+    const nextBtn = document.getElementById('testimonial-next');
+
+    if (!slides.length || !dots.length || !prevBtn || !nextBtn) return;
+
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('opacity-0', 'translate-x-full', '-translate-x-full', 'absolute');
+          slide.classList.add('opacity-100', 'translate-x-0', 'relative');
+        } else {
+          slide.classList.remove('opacity-100', 'translate-x-0', 'relative');
+          slide.classList.add('opacity-0', 'translate-x-full', 'absolute');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('bg-amber-700', i === index);
+        dot.classList.toggle('bg-amber-200', i !== index);
+      });
+
+      current = index;
+    }
+
+    function next() {
+      const nextIndex = (current + 1) % slides.length;
+      showSlide(nextIndex);
+    }
+
+    function prev() {
+      const prevIndex = (current - 1 + slides.length) % slides.length;
+      showSlide(prevIndex);
+    }
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showSlide(index));
+    });
+
+    // Auto-rotation douce (facultatif)
+    let auto = setInterval(next, 9000);
+
+    [prevBtn, nextBtn, ...dots].forEach(el => {
+      el.addEventListener('mouseenter', () => clearInterval(auto));
+      el.addEventListener('mouseleave', () => {
+        auto = setInterval(next, 9000);
+      });
+    });
+
+    // init
+    showSlide(0);
+  })();
+</script>

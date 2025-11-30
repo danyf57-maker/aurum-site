@@ -9,11 +9,33 @@ type BetaSignup = {
 };
 
 export const BetaAdmin: React.FC = () => {
+  const [authorized, setAuthorized] = useState(false);
   const [signups, setSignups] = useState<BetaSignup[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
+    try {
+      const flag = typeof window !== 'undefined'
+        ? window.localStorage.getItem('aurum-admin')
+        : null;
+
+      if (flag === 'true') {
+        setAuthorized(true);
+      } else if (typeof window !== 'undefined') {
+        window.location.href = '/admin/login';
+      }
+    } catch (e) {
+      console.error('[AURUM ADMIN] Impossible de lire le flag admin dans localStorage', e);
+      if (typeof window !== 'undefined') {
+        window.location.href = '/admin/login';
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!authorized) return;
+
     const fetchSignups = async () => {
       if (!supabase) {
         setErrorMessage('Supabase non configuré côté client.');
@@ -36,7 +58,7 @@ export const BetaAdmin: React.FC = () => {
     };
 
     fetchSignups();
-  }, []);
+  }, [authorized]);
 
   const truncateReason = (reason: string | null) => {
     if (!reason) return '';
@@ -53,6 +75,13 @@ export const BetaAdmin: React.FC = () => {
   };
 
   return (
+    !authorized ? (
+      <div className="min-h-screen flex items-center justify-center bg-[#f7f2e8]">
+        <p className="text-sm text-[#7d6a5a]">
+          Vérification de l’accès à l’espace admin…
+        </p>
+      </div>
+    ) : (
     <div className="min-h-screen w-full bg-gradient-to-b from-[#FDFBF7] via-[#FAF6EE] to-[#F2EFE9] px-4 py-10">
       <div className="max-w-5xl mx-auto bg-white/90 rounded-3xl shadow-lg border border-[#E5D0A8]/40 p-8">
         <div className="flex items-center justify-between mb-6">
@@ -103,5 +132,6 @@ export const BetaAdmin: React.FC = () => {
         )}
       </div>
     </div>
+    )
   );
 };
